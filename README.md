@@ -1,4 +1,4 @@
-# siyuan-note
+# 思源笔记图标 Jewel
 
-在思源笔记官方icon主题 material 的基础上重绘了文件树、段落、对齐等 icon
-!(preview)[]
+在思源笔记官方icon主题 material 的基础上重绘了文件树、段落、对齐等 icon，然后恬不知耻的取名叫做 **Jewel（珠宝）**
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/jewel/preview.png)
