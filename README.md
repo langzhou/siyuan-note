@@ -18,7 +18,7 @@ Update：2021-05-15
 
 ![how to use](https://raw.githubusercontent.com/langzhou/siyuan-note/main/how%20to%20use.png)
 
-## Step 3：更换软件图标（macOS）
+## Step 3：更换软件图标（macOS）#todo#
 
 ![image](https://user-images.githubusercontent.com/6987229/118349858-e27c3200-b585-11eb-91df-ee96c4f87169.png)
 
