@@ -14,7 +14,7 @@ Update：2021-05-15
 ![image](https://user-images.githubusercontent.com/6987229/118349897-20795600-b586-11eb-822d-72119bdc7f57.png)
 
 
-使用方法：下载[图标 Jewl]https://github.com/langzhou/siyuan-note/tree/main/jewel，复制至软件 icon 目录下，然后在 设置-外观-图标 中启用
+使用方法：下载[Jewl](https://github.com/langzhou/siyuan-note/tree/main/jewel)，复制文件夹至软件 icon 目录下，然后在 设置-外观-图标 中启用
 
 ![how to use](https://raw.githubusercontent.com/langzhou/siyuan-note/main/how%20to%20use.png)
 
