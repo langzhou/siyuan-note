@@ -7,7 +7,8 @@ Update：2021-05-15
 - [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
 - [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼
 - [Winter](https://github.com/langzhou/winter-theme-for-siyuan)：黑白主题，适合纯粹的文章书写
-- [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题
+- [Tonight](https://github.com/langzhou/tonight-for-siyuan)：暗色主题
+- [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题，已停止维护
 
 
 ## Step 2：更换界面图标
