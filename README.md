@@ -1,8 +1,19 @@
 # 思源笔记美化
 
-Update：2021-05-15
+Update：2021-05-19
 
 ## Step 1：更换主题
+
+![image](https://user-images.githubusercontent.com/6987229/118743626-4607a780-b885-11eb-98ed-48ef9983bbe1.png)
+
+![image](https://user-images.githubusercontent.com/6987229/118743668-561f8700-b885-11eb-890e-68add24e223e.png)
+
+![image](https://user-images.githubusercontent.com/6987229/118743673-5ddf2b80-b885-11eb-8451-800505637f66.png)
+
+![image](https://user-images.githubusercontent.com/6987229/118743691-659ed000-b885-11eb-896f-da00a49cf7de.png)
+
+![image](https://user-images.githubusercontent.com/6987229/118743699-6cc5de00-b885-11eb-9fb0-5228bc72c487.png)
+
 
 - [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
 - [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼
@@ -19,7 +30,8 @@ Update：2021-05-15
 
 ![how to use](https://raw.githubusercontent.com/langzhou/siyuan-note/main/how%20to%20use.png)
 
-## Step 3：更换软件图标（macOS）#todo#
+## Step 3：更换软件图标（macOS）#todo
 
-![image](https://user-images.githubusercontent.com/6987229/118349858-e27c3200-b585-11eb-91df-ee96c4f87169.png)
+![image](https://user-images.githubusercontent.com/6987229/118743860-cb8b5780-b885-11eb-9f6f-834d4eee9b8f.png)
+
 
