@@ -1,6 +1,8 @@
 # 思源笔记美化
 
-Update：2021-05-24
+最近更新：2021-05-24
+
+问题反馈：https://github.com/langzhou/siyuan-note/issues/1
 
 ## Step 1：更换主题
 
