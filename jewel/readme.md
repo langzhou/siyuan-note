@@ -1,8 +1,11 @@
 
 
 ![image](https://user-images.githubusercontent.com/6987229/118575522-42a6ea00-b7b9-11eb-9cae-d6d98db81a15.png)
+
 Update:2021-05-18
+
 已重绘图标：
+
 1. 段落
 2. 显示停靠栏
 3. 隐藏停靠栏
