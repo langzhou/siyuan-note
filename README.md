@@ -37,4 +37,12 @@
 
 ![image](https://user-images.githubusercontent.com/6987229/118743860-cb8b5780-b885-11eb-9f6f-834d4eee9b8f.png)
 
+图标替换方法（macOS）：
+
+1. 选中应用软件图标，右键菜单点击「显示简介」
+2. 将图标文件拖动至下图所示位置即可
+
+![image](https://user-images.githubusercontent.com/6987229/119348780-e7508c80-bccf-11eb-9912-0864afe8bd2e.png)
+
+
 
