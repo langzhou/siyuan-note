@@ -1,18 +1,18 @@
 # 思源笔记美化
 
-Update：2021-05-19
+Update：2021-05-24
 
 ## Step 1：更换主题
 
-![image](https://user-images.githubusercontent.com/6987229/118743626-4607a780-b885-11eb-98ed-48ef9983bbe1.png)
+![spring](https://raw.githubusercontent.com/langzhou/spring-theme-for-siyuan/main/preview.png)
 
-![image](https://user-images.githubusercontent.com/6987229/118743668-561f8700-b885-11eb-890e-68add24e223e.png)
+![winter](https://raw.githubusercontent.com/langzhou/winter-theme-for-siyuan/main/preview.png)
 
-![image](https://user-images.githubusercontent.com/6987229/118743673-5ddf2b80-b885-11eb-8451-800505637f66.png)
+![autumn](https://raw.githubusercontent.com/langzhou/autumn-theme-for-siyuan/main/preview.png)
 
-![image](https://user-images.githubusercontent.com/6987229/118743691-659ed000-b885-11eb-896f-da00a49cf7de.png)
+![tonight](https://raw.githubusercontent.com/langzhou/tonight-theme-for-siyuan/main/preview.png)
 
-![image](https://user-images.githubusercontent.com/6987229/118743699-6cc5de00-b885-11eb-9fb0-5228bc72c487.png)
+![sea](https://raw.githubusercontent.com/langzhou/sea-theme-for-siyuan/main/preview.png)
 
 
 - [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
