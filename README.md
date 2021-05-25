@@ -35,7 +35,9 @@
 
 ## Step 3：更换软件图标（macOS）#todo
 
-![image](https://user-images.githubusercontent.com/6987229/118743860-cb8b5780-b885-11eb-9f6f-834d4eee9b8f.png)
+
+![image](https://user-images.githubusercontent.com/6987229/119466129-eaeb1e80-bd76-11eb-82a2-ddf73ab3242e.png)
+
 
 图标替换方法（macOS）：
 
