@@ -4,7 +4,7 @@
 
 问题反馈：https://github.com/langzhou/siyuan-note/issues/1
 
-## Step 1：更换主题
+## Step 1：更换主题（已适配思源笔记 v1.2）
 
 ![spring](https://raw.githubusercontent.com/langzhou/spring-theme-for-siyuan/main/preview.png)
 
