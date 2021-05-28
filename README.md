@@ -10,6 +10,8 @@
 
 ![winter](https://raw.githubusercontent.com/langzhou/winter-theme-for-siyuan/main/preview.png)
 
+![winter-mix](https://raw.githubusercontent.com/langzhou/winter-mix-theme-for-siyuan/master/preview.png)
+
 ![autumn](https://raw.githubusercontent.com/langzhou/autumn-theme-for-siyuan/main/preview.png)
 
 ![tonight](https://raw.githubusercontent.com/langzhou/tonight-theme-for-siyuan/main/preview.png)
@@ -21,6 +23,7 @@
 - [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
 - [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼
 - [Winter](https://github.com/langzhou/winter-theme-for-siyuan)：黑白主题，适合纯粹的文章书写
+- [Winter-Mix](https://github.com/langzhou/winter-mix-theme-for-siyuan)：亮色主题，黑色边栏，在 Winter 基础上改造而成
 - [Tonight](https://github.com/langzhou/tonight-for-siyuan)：暗色主题
 - [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题
 
