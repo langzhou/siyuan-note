@@ -1,10 +1,10 @@
 # 思源笔记美化
 
-最近更新：2021-05-24
+最近更新：2021-06-03
 
 问题反馈：https://github.com/langzhou/siyuan-note/issues/1
 
-## Step 1：更换主题（已适配v1.2）
+## Step 1：更换主题
 
 ![spring](https://raw.githubusercontent.com/langzhou/spring-theme-for-siyuan/main/preview.png)
 
@@ -23,7 +23,7 @@
 - [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
 - [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼
 - [Winter](https://github.com/langzhou/winter-theme-for-siyuan)：黑白主题，适合纯粹的文章书写
-- [Winter-Mix](https://github.com/langzhou/winter-mix-theme-for-siyuan)：亮色主题，黑色边栏，在 Winter 基础上改造而成
+- [Winter-Mix](https://github.com/langzhou/winter-mix-theme-for-siyuan)：亮色主题，毛玻璃效果，在 Winter 基础上改造而成
 - [Tonight](https://github.com/langzhou/tonight-for-siyuan)：暗色主题
 - [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题
 
