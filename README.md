@@ -2,6 +2,8 @@
 
 最近更新：2021-06-03
 
+主题更新日志：https://github.com/langzhou/siyuan-note/blob/main/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md
+
 问题反馈：https://github.com/langzhou/siyuan-note/issues/1
 
 ## Step 1：更换主题
