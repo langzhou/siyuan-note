@@ -18,16 +18,18 @@
 
 ![tonight](https://raw.githubusercontent.com/langzhou/tonight-theme-for-siyuan/main/preview.png)
 
-
 ![sea](https://raw.githubusercontent.com/langzhou/sea-theme-for-siyuan/main/preview.png)
 
 
-- [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景
-- [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼
-- [Winter](https://github.com/langzhou/winter-theme-for-siyuan)：黑白主题，适合纯粹的文章书写
-- [Winter-Mix](https://github.com/langzhou/winter-mix-theme-for-siyuan)：亮色主题，毛玻璃效果，在 Winter 基础上改造而成
-- [Tonight](https://github.com/langzhou/tonight-for-siyuan)：暗色主题
-- [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题
+![Toy](https://raw.githubusercontent.com/langzhou/toy-theme-for-siyuan/main/preview.png)
+
+- [Toy](https://github.com/langzhou/toy-theme-for-siyuan)：将页面结构与配色分离，可以快速搭配出各种样式主题
+- [Spring](https://github.com/langzhou/spring-theme-for-siyuan)：绿色主题，适合各种场景（已停止更新，统一迁移至 Toy ）
+- [Autumn](https://github.com/langzhou/autumn-theme-for-siyuan)：浅黄色主题，护眼（已停止更新，统一迁移至 Toy ）
+- [Winter](https://github.com/langzhou/winter-theme-for-siyuan)：黑白主题，适合纯粹的文章书写（已停止更新，统一迁移至 Toy ）
+- [Winter-Mix](https://github.com/langzhou/winter-mix-theme-for-siyuan)：亮色主题，毛玻璃效果，在 Winter 基础上改造而成（已停止更新，统一迁移至 Toy ）
+- [Tonight](https://github.com/langzhou/tonight-for-siyuan)：暗色主题（已停止更新，统一迁移至 Toy ）
+- [Sea](https://github.com/langzhou/sea-theme-for-siyuan)：暗色主题（已停止更新，统一迁移至 Toy ）
 
 
 ## Step 2：更换界面图标
