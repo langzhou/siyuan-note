@@ -63,4 +63,4 @@
 
 ![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/calendar.png) 
 
-![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/ban.png)
+![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/kanban.png)
