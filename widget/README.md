@@ -18,7 +18,7 @@
 
 ### 使用方法
 
-1. 下载挂件文件夹，并放置在思源笔记 `data/widgets` 目录下，操作后目录结构为 `data/widgets/note-views`
+1. 下载挂件文件夹**note-views**，并放置在思源笔记 `data/widgets` 目录下，操作后目录结构为 `data/widgets/note-views`
 2. 在文档中插入 iframe 内容块
 3. 获得iframe 内容块的 ID，方法：在 iframe 块上 右键菜单-复制-复制块超链接）得到链接 `siyuan://blocks/20210512214532-tf8tlbt`，其中 `blocks/` 后的字符串便是内容块ID
 3. 设置 iframe 链接：点击 iframe 块图标，在弹出菜单中选择「资源」，在输入框中填入：http://127.0.0.1:6806/widgets/note-views/?blockid=XXX，其中 XXX 为上个步骤中得到的内容块ID
