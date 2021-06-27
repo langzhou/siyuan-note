@@ -55,3 +55,12 @@
    
 ### 预览图
 
+![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/card.png) 
+
+![list](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/list.png) 
+
+![table](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/table.png) 
+
+![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/calendar.png) 
+
+![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/ban.png)
