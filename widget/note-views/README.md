@@ -1,4 +1,4 @@
-# Note Views
+note-views/# Note Views
 
 这是一款类似于 Notion Database （当然没那么强悍）的小挂件，它可以自动列出挂件所在（**直接上级**）文件夹中的所有文档，并支持多种视图样式进行展现。
 
@@ -57,12 +57,12 @@
    
 ### 预览图
 
-![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/card.png) 
+![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/card.png) 
 
-![list](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/list.png) 
+![list](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/list.png) 
 
-![table](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/table.png) 
+![table](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/table.png) 
 
-![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/calendar.png) 
+![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/calendar.png) 
 
-![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/preview/kanban.png)
+![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/kanban.png)
