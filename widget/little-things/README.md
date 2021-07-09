@@ -1,6 +1,6 @@
 # Little Things
 
- 基于思源笔记的及其轻量级的事务管理工具，它主要实现的功能是：把分散在文档各处的具有待办状态的内容块聚合起来。
+ 基于思源笔记的极其轻量级的事务管理工具，它主要实现的功能是：把分散在文档各处的具有待办状态的内容块聚合起来。
 
 - 前端框架：[Vue.js](https://v3.cn.vuejs.org/)、[Vue-CLI](https://cli.vuejs.org/)
 - 插件：[Element（饿了么组件库）](https://element-plus.gitee.io/#/zh-CN)、[axios（网络请求）](https://github.com/axios/axios)、[Dexie.js（IndexedDB 数据库）](https://dexie.org/)、vue3-context-menu（右键菜单）
