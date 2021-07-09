@@ -6,8 +6,9 @@
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
-- Note-Views：一款仿 Notion 视图的文档浏览挂件
-- Tiny-Widget(todo)：集成了多个小部件，包括进度条、5 级评星、文档内目录 TOC 等
+- [Note Views](https://github.com/langzhou/siyuan-note/tree/main/widget/note-views)：一款仿 Notion 视图的文档浏览挂件
+- [Little Things(doing)](https://github.com/langzhou/siyuan-note/tree/main/widget/little-things)：轻量级的事务管理
+- Tiny Widget(todo)：集成了多个小部件，包括进度条、5 级评星、文档内目录 TOC 等
 
 
 ## 二、主题 Theme
