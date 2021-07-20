@@ -2,7 +2,20 @@
 
 这里是关于[思源笔记](https://b3log.org/siyuan/)的一些进阶使用心得，包括主题、图标、挂件等内容。
 
-## 一、挂件 Widget
+## 一、Chrome 拓展插件
+
+思源笔记工具箱 v0.0.1
+- 支持题头图位置调整
+- 支持主题快捷切换（需要配置已安装的主题，Toy主题无需配置，但需要从集市中更新至最新版）- 暂不支持保存选择
+- 自定义 CSS
+- 其他：未完待续...
+
+使用方法：
+1. 下载 [Chrome](https://github.com/langzhou/siyuan-note/tree/main/chrome) 文件夹中的内容并解压
+2. 进入 Chrome-拓展程序设置页面，开启「开发者模式」
+3. 点击「加载已解压的拓展程序」，选择第一步已解压的文件夹
+4. 完成
+## 二、挂件 Widget
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
@@ -11,7 +24,7 @@
 - Tiny Widget(todo)：集成了多个小部件，包括进度条、5 级评星、文档内目录 TOC 等
 
 
-## 二、主题 Theme
+## 三、主题 Theme
 
 [主题更新日志](https://github.com/langzhou/siyuan-note/blob/main/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
@@ -44,14 +57,14 @@
 
 
 
-## 三、界面图标 Icons
+## 四、界面图标 Icons
 ![image](https://user-images.githubusercontent.com/6987229/118349897-20795600-b586-11eb-822d-72119bdc7f57.png)
 
 
 使用方法：下载[Jewl](https://github.com/langzhou/siyuan-note/tree/main/jewel)，复制文件夹至软件 icon 目录下，然后在 设置-外观-图标 中启用
 
 
-## 四、软件图标（macOS）
+## 五、软件图标（macOS）
 
 
 ![image](https://raw.githubusercontent.com/langzhou/siyuan-note/main/icons/preview.png)

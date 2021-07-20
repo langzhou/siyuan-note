@@ -1,0 +1,1 @@
+import{r as s,o as a,c as e,a as t,w as n,b as o,e as r,H as d}from"../assets/vendor.cbed61cf.js";/* empty css                      */const l={data:()=>({hi:"hello"})},u=o("功能待开发，可能会做成快捷录入");l.render=function(o,r,d,l,c,i){const f=s("el-button");return a(),e("div",null,[t(f,null,{default:n((()=>[u])),_:1})])},r(l).use(d).mount("#app");
