@@ -54,7 +54,7 @@
 ## 四、软件图标（macOS）
 
 
-![image](https://user-images.githubusercontent.com/6987229/119466129-eaeb1e80-bd76-11eb-82a2-ddf73ab3242e.png)
+![image](https://github.com/langzhou/siyuan-note/tree/main/icons/preview.png)
 
 
 图标替换方法（macOS）：
