@@ -11,7 +11,7 @@
 - 其他：未完待续...
 
 使用方法：
-1. 下载 [Chrome](https://github.com/langzhou/siyuan-note/tree/main/chrome) 文件夹中的内容并解压
+1. 下载 [Chrome 插件](https://github.com/langzhou/siyuan-note/releases/) ，解压文件夹
 2. 进入 Chrome-拓展程序设置页面，开启「开发者模式」
 3. 点击「加载已解压的拓展程序」，选择第一步已解压的文件夹
 4. 完成
