@@ -1,6 +1,4 @@
-/**
- * 选择文本后以图片形式进行分享
- */
+/* 选择文本后以图片形式进行分享 */
 import html2canvas from 'html2canvas'
 class ImageShare{
   constructor(){
@@ -80,8 +78,7 @@ class ImageShare{
   }
 
   createImgContainer(){
-    let blocks = document.querySelectorAll('.protyle-wysiwyg--select'
-    )
+    let blocks = document.querySelectorAll('.protyle-wysiwyg--select')
     let html = ''
     if(blocks.length > 0){
       console.log(blocks);
@@ -89,7 +86,6 @@ class ImageShare{
         html += `<p>${item.innerText}</p>`
       })
     }else{
-      console.log('range');
       let selection = getSelection()
       let range = selection.getRangeAt(0)
       if(range.toString()){
@@ -114,7 +110,6 @@ class ImageShare{
       a.href = url
       a.dispatchEvent(event)
     }
-    
   }
 }
 

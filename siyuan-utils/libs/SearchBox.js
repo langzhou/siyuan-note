@@ -20,14 +20,6 @@ class SearchBox{
 
   handleKeyDown(e){
       
-      // 监听组合快捷键 shift+alt+p
-      if(e.shiftKey && e.altKey && e.code =='KeyP'){
-        e.preventDefault()
-        e.stopPropagation()
-        this.create() //创建搜索框
-        this.showBox() //展示搜索框
-      }
-
       // 移除 action 图标
       if(this.isShow && this.actionName && (e.key == 'Delete' || e.key == 'Backspace')){
         if(this.input.innerText == '') this.removeAction()
