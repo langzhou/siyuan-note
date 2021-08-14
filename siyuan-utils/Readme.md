@@ -9,6 +9,8 @@
 
 由于目前官方暂未提供插件接口，本项目实现的方式有些 hack，因此暂不提供 js 注入方法，有需要的请自行探索。
 
+哦，对了，我的订阅推荐码`4EY48YJ`
+
 ## 项目简介
 Siyuan Utils 项目包括 Chrome Extension 和 Local Script 两部分。
 
