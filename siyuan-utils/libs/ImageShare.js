@@ -1,7 +1,7 @@
-import html2canvas from 'html2canvas'
 /**
  * 选择文本后以图片形式进行分享
  */
+import html2canvas from 'html2canvas'
 class ImageShare{
   constructor(){
     this.box        = null
