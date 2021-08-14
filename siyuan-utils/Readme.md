@@ -6,3 +6,12 @@
 - @呼出块属性菜单
 - 快捷搜索框（暂时可支持豆瓣书籍信息搜索和导入）
 - 内容块批注评论
+
+## Preview
+
+### Comment
+
+![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
+### Search box
+
+![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/searchbox-1.png)
