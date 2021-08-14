@@ -27,6 +27,11 @@ Local Script 已实现的功能（部分源码未更新）：
 - /utils 工具包
 - /css 样式表
 - /assets 静态资源文件
+
+项目命令
+- 安装 `npm install`
+- 运行 `npm run dev`
+- 构建 `npm run build`
 ## Preview
 
 ### Comment
