@@ -1,4 +1,4 @@
-# Siyuan Utils - Local Scripts for Siyuan
+# Siyuan Utils
 
 ## 前言
 介绍项目之前先写点别的。
@@ -12,7 +12,7 @@
 ## 项目简介
 Siyuan Utils 项目包括 Chrome Extension 和 Local Script 两部分。
 
-其中 Chrome Extension 主要满足一些网络资料收集的场景，比如微信读书笔记导入等，而 Local Script 则是对客户端本体进行功能增强。
+其中 Chrome Extension（[详见](https://github.com/langzhou/siyuan-note/tree/main/chrome-extension)）主要满足一些网络资料收集的场景，比如微信读书笔记导入等，而 Local Script 则是对客户端本体进行功能增强。
 
 Local Script 已实现的功能（部分源码未更新）：
 - 题头图位置调整
