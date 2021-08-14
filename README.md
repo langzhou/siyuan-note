@@ -2,25 +2,12 @@
 
 这里是关于[思源笔记](https://b3log.org/siyuan/)的一些进阶使用心得，包括主题、图标、挂件等内容。
 
-## Local Scripts
+## Siyuan Utils
 
-todo
-## Chrome Extension
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
 
-思源笔记工具箱 Siyuan Utils
-- 新增：属性值支持设置日期变量 - v0.0.6
-- 新增：@呼出常用属性 - v0.0.5
-- 新增：「闪念」功能，支持在浏览器页面快速添加碎片笔记 - v0.0.2
-- 支持题头图位置调整 - v0.0.1
-- 支持主题快捷切换（需要配置已安装的主题，Toy主题无需配置，但需要从集市中更新至最新版）- 暂不支持保存选择 - v0.0.1
-- 自定义 CSS - v0.0.1
-- 其他：未完待续...
+思源笔记工具箱，提供了一些可能有用的功能增强，比如内容块评论、题头图位置调整等（[详见](https://github.com/langzhou/siyuan-note/tree/main/siyuan-utils)）。
 
-使用方法：
-1. 下载 [Chrome 插件](https://github.com/langzhou/siyuan-note/releases/) ，解压文件夹
-2. 进入 Chrome-拓展程序设置页面，开启「开发者模式」
-3. 点击「加载已解压的拓展程序」，选择第一步已解压的文件夹
-4. 完成
 ## Widgets
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
