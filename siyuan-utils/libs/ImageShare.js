@@ -1,28 +1,19 @@
 import html2canvas from 'html2canvas'
-
+/**
+ * 选择文本后以图片形式进行分享
+ */
 class ImageShare{
-
   constructor(){
     this.box        = null
     this.container  = null
     this.image      = null
-    
-    this.init()
-  }
-
-  init(){
-
-    // this.createImage(document.body,img=>this.createBox(img))
-
   }
 
   showBox(){
-
     if(!this.box) this.createBox()
     this.createImage()
     this.overlay.style.display = 'block'
     this.box.style.display = 'block'
-
   }
 
   hiddenBox(){
@@ -33,13 +24,10 @@ class ImageShare{
     if(this.overlay){
       this.overlay.style.display = 'none'
     }
-
   }
 
   createBox(){
-
     let fragment = document.createDocumentFragment()
-
     this.box = document.createElement('div')
     this.box.id = 'lz-image-box'
     let header = document.createElement('div')
@@ -56,14 +44,11 @@ class ImageShare{
       <div class="save">保存</div>
     `
     header.addEventListener('click',e=>this.handleEvents(e))
-
     this.boxBody = document.createElement('div')
     this.boxBody.className = 'image'
-
     this.box.appendChild(header)
     this.box.appendChild(this.boxBody)
     fragment.appendChild(this.box)
-
     let overlay = document.querySelector('.lz-overlay-black')
     if(overlay){
       this.overlay = overlay
@@ -73,13 +58,10 @@ class ImageShare{
       fragment.appendChild(this.overlay)
     }
     this.overlay.addEventListener('click',()=>this.hiddenBox())
-    
     this.container = document.createElement('div')
     this.container.id = 'lz-image-container'
     fragment.appendChild(this.container)
-
     document.body.appendChild(fragment)
-
   }
 
   handleEvents(e){
@@ -89,14 +71,12 @@ class ImageShare{
     }
   }
 
-
   createImage(){
     this.createImgContainer()
     html2canvas(this.container).then(canvas =>{
       this.img = this.canvasToImage(canvas)
       this.boxBody.appendChild(this.img)
     })
-
   }
 
   createImgContainer(){
@@ -117,7 +97,6 @@ class ImageShare{
       }
     }
     this.container.innerHTML = html
-
   }
 
   canvasToImage(canvas) {
