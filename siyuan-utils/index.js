@@ -26,18 +26,22 @@ class SiyuanUtils{
       if(this.searchBox) this.searchBox.handleKeyDown(e)
       if(this.comment) this.comment.handleKeyDown(e)
     })
+
     // 输入防抖
     window.addEventListener('keyup',lodash.debounce(e =>{
       if(this.searchBox) this.searchBox.handleInput(e)
     },800))
+
     // 按键弹起事件
     window.addEventListener('keyup',e =>{
       if(this.searchBox) this.searchBox.actionTrigger(e)
     })
+
     // 鼠标单击事件
     window.addEventListener('click',e =>{
       if(this.comment) this.comment.showBox(e)
     })
+
     // 鼠标松开事件
     window.addEventListener('mouseup',e =>{
       if(this.comment) this.comment.handleSelectionEvent(e)
@@ -65,7 +69,6 @@ class SiyuanUtils{
       }
     }
   }
-
 
   /* 检测 dom 变动，用于动态插入元素 */
   domWatcher(){
@@ -115,12 +118,12 @@ class SiyuanUtils{
     let elementCss = document.createElement('link')
     elementCss.setAttribute('rel','stylesheet')
     elementCss.setAttribute('type','text/css')
-    elementCss.setAttribute('href','./widgets/siyuan-utils2/css/element.css')
+    elementCss.setAttribute('href',sysConfig.widgetPath+'/css/element.css')
     fragment.appendChild(elementCss)
     let css = document.createElement('link')
     css.setAttribute('rel','stylesheet')
     css.setAttribute('type','text/css')
-    css.setAttribute('href','./widgets/siyuan-utils2/css/siyuan-utils.css')
+    css.setAttribute('href',sysConfig.widgetPath+'/css/siyuan-utils.css')
     fragment.appendChild(css)
     document.head.appendChild(fragment)
   }
