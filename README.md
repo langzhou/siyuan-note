@@ -2,6 +2,8 @@
 
 这里是关于[思源笔记](https://b3log.org/siyuan/)的一些进阶使用心得，包括主题、图标、挂件等内容。
 
+如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
+
 ## Siyuan Utils
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
