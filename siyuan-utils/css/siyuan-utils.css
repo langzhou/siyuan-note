@@ -29,6 +29,79 @@ strong[style="blank"]:hover{
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Share pic */
+#lz-image-container{
+  position: absolute;
+  left: -9999px;
+  font-size: 40px;
+  width: 1200px;
+  padding: 1em;
+  line-height: 1.5em;
+}
+#lz-image-box{
+  position: fixed;
+  top: 100px;
+  left: calc(50% - 250px);
+  width: 500px;
+  min-height: 200px;
+  max-height: 600px;
+  overflow: hidden;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: var(--b3-dialog-shadow);
+  background-color: var(--b3-theme-surface);
+}
+#lz-image-box .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+#lz-image-box .title{
+  font-size: 18px;
+  margin-right: 5px;
+}
+#lz-image-box .btn-group{
+  display: flex;
+  align-items: center;
+
+}
+#lz-image-box .theme{
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+#lz-image-box .white{
+  background-color: #fafafa;
+  border: 1px solid #999;
+}
+
+#lz-image-box .black{
+  background-color: #666;
+  border: 1px solid #666;
+}
+#lz-image-box .yellow{
+  background-color: #ebb476;
+  border: 1px solid #ebb476;
+}
+#lz-image-box .save{
+  padding: 2px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: var(--b3-theme-primary);
+  color: var(--b3-theme-on-primary);
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+}
+#lz-image-box .image img{
+  width: 100%;
+}
+
+
 /* Inline comment */
 strong[style*="quote"]{
   border-bottom: 2px solid rgb(255, 212, 0);

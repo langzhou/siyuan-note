@@ -12,6 +12,9 @@
 ### Comment
 
 ![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
-### Search box
+### Search Box
 
 ![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/searchbox-1.png)
+
+### Image Share
+![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/image-share-1.png)

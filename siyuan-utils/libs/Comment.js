@@ -129,8 +129,7 @@ class Comment {
       e.stopPropagation()
       show = true
       from = 'block'
-      let selection = getSelection() 
-      this.range = selection.getRangeAt(0)
+      this.range = getSelection().getRangeAt(0)
     }else 
     if(target.classList.contains('protyle-attr--comment')  || parent.classList.contains('protyle-attr--comment') || grandParent.classList.contains('protyle-attr--comment')){
       // 点击内容块右侧图标触发

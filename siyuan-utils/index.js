@@ -3,6 +3,7 @@ import { sysConfig } from './utils/config'
 import { getSettings, setSettings } from './utils/common'
 import SearchBox from './libs/SearchBox'
 import Comment from './libs/Comment'
+import ImageShare from './libs/ImageShare'
 
 class SiyuanUtils{
 
@@ -29,9 +30,11 @@ class SiyuanUtils{
 
   }
 
+
   /* 事件委托 */
   handleEvents(){
     window.addEventListener('keydown',e =>{
+      this.shortcutKey(e)
       if(this.searchBox) this.searchBox.handleKeyDown(e)
       if(this.comment) this.comment.handleKeyDown(e)
     })
@@ -53,6 +56,23 @@ class SiyuanUtils{
     window.addEventListener('mouseup',e =>{
       if(this.comment) this.comment.handleSelectionEvent(e)
     })
+
+  }
+
+  /* 快捷键注册 */
+  shortcutKey(e){
+    if(e.shiftKey && e.altKey && e.code =='KeyS'){
+      e.preventDefault()
+      e.stopPropagation()
+
+      if(!this.imageShare){
+        this.imageShare = new ImageShare()
+      }
+
+      this.imageShare.showBox()
+
+
+    }
 
   }
 
