@@ -2,10 +2,10 @@
 
 这里是关于[思源笔记](https://b3log.org/siyuan/)的一些进阶使用心得，包括主题、图标、挂件等内容。
 
-## 1. Local Scripts
+## Local Scripts
 
 todo
-## 2. Chrome Extension
+## Chrome Extension
 
 思源笔记工具箱 Siyuan Utils
 - 新增：属性值支持设置日期变量 - v0.0.6
@@ -21,7 +21,7 @@ todo
 2. 进入 Chrome-拓展程序设置页面，开启「开发者模式」
 3. 点击「加载已解压的拓展程序」，选择第一步已解压的文件夹
 4. 完成
-## 3. Widgets
+## Widgets
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
@@ -30,7 +30,7 @@ todo
 - Tiny Widget(todo)：集成了多个小部件，包括进度条、5 级评星、文档内目录 TOC 等
 
 
-## 4. Themes
+## Themes
 
 [主题更新日志](https://github.com/langzhou/siyuan-note/blob/main/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
@@ -63,14 +63,14 @@ todo
 
 
 
-## 5. Icons
+## Icons
 ![image](https://user-images.githubusercontent.com/6987229/118349897-20795600-b586-11eb-822d-72119bdc7f57.png)
 
 
 使用方法：下载[Jewl](https://github.com/langzhou/siyuan-note/tree/main/jewel)，复制文件夹至软件 icon 目录下，然后在 设置-外观-图标 中启用
 
 
-## 6. Application icons（macOS）
+## Application icons（macOS）
 
 
 ![image](https://raw.githubusercontent.com/langzhou/siyuan-note/main/icons/preview.png)
