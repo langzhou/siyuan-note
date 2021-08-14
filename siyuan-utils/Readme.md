@@ -1,4 +1,4 @@
-# Siyuan Utils
+# 思源笔记工具箱 Siyuan Utils 
 
 ## 前言
 介绍项目之前先写点别的。
