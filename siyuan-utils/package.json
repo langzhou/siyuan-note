@@ -1,0 +1,20 @@
+{
+  "name": "siyuan-utils",
+  "version": "1.0.0",
+  "description": "Siyuan Note Utils",
+  "author": "allen",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^5.0.2",
+    "rollup-watch": "^3.2.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.6",
+    "lodash": "^4.17.21"
+  }
+}
