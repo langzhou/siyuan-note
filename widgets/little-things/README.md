@@ -34,6 +34,6 @@
    
 ### 预览图
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/little-things/preview.png) 
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/little-things/preview2.png) 
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview2.png) 

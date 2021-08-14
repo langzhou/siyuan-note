@@ -10,6 +10,8 @@
 
 ## Widgets
 
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
+
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
 - [Note Views](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-views)：一款仿 Notion 视图的文档浏览挂件

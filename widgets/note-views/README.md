@@ -60,12 +60,12 @@
    
 ### 预览图
 
-![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/card.png) 
+![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/card.png) 
 
-![list](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/list.png) 
+![list](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/list.png) 
 
-![table](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/table.png) 
+![table](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/table.png) 
 
-![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/calendar.png) 
+![calendar](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/calendar.png) 
 
-![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widget/note-views/preview/kanban.png)
+![kanban](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/kanban.png)
