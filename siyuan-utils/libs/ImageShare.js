@@ -14,12 +14,11 @@ class ImageShare{
     let font = document.createElement('style')
     font.className = 'image-share-font'
     font.innerHTML = `
-      @font-face{
-        font-family: 'LXGWWenKai';
-        src : url('${sysConfig.widgetPath}/assets/LXGWWenKai-Regular.ttf'),
-              url('${sysConfig.widgetPath}/assets/LXGWWenKai-Medium.ttf');
-      }
-    `
+    @font-face{
+      font-family: 'LXGWWenKai';
+      src : url('${sysConfig.widgetPath}/assets/LXGWWenKai-Regular.ttf'),
+            url('${sysConfig.widgetPath}/assets/LXGWWenKai-Medium.ttf');
+    }`
     document.head.appendChild(font)
   }
 
@@ -168,7 +167,7 @@ class ImageShare{
   save(){
     let a = document.createElement('a')
     let event = new MouseEvent('click')
-    a.save = '思源笔记分享'
+    a.download = '思源笔记分享'
     a.href = this.img.src
     a.dispatchEvent(event)
   }
