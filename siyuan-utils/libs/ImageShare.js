@@ -32,7 +32,7 @@ class ImageShare{
   hiddenBox(){
     if(this.box){
       this.box.style.display = 'none'
-      this.boxBody.innerHTML = ''
+      this.boxBody.innerHTML = '<div class="tips">图片生成中...<div>'
     }
     if(this.overlay){
       this.overlay.style.display = 'none'
@@ -50,11 +50,11 @@ class ImageShare{
       <div style="display:flex">
         <div class="title">分享图片</div>
         <div class="themes">
-          <div class="theme image-theme-white"></div>
+          <div class="theme image-theme-white on"></div>
           <div class="theme image-theme-black"></div>
           <div class="theme image-theme-yellow"></div>
-          <div class="theme image-theme-font1">A</div>
-          <div class="theme image-theme-font2">A</div>
+          <div class="theme image-font-font1 on">A</div>
+          <div class="theme image-font-font2">A</div>
         </div>
       </div>
       <div style="display:flex">
@@ -65,6 +65,7 @@ class ImageShare{
     header.addEventListener('click',e=>this.handleEvents(e))
     this.boxBody = document.createElement('div')
     this.boxBody.className = 'image'
+    this.boxBody.innerHTML = '<div class="tips">图片生成中...<div>'
     this.box.appendChild(header)
     this.box.appendChild(this.boxBody)
     fragment.appendChild(this.box)
@@ -91,6 +92,8 @@ class ImageShare{
     }
 
     if(target.classList.contains('image-theme-white')){
+      document.querySelector('.on[class*="image-theme"]').classList.remove('on')
+      target.classList.add('on')
       this.container.classList.remove('image-theme-black')
       this.container.classList.remove('image-theme-yellow')
       this.container.classList.add('image-theme-white')
@@ -99,6 +102,8 @@ class ImageShare{
     }
 
     if(target.classList.contains('image-theme-black')){
+      document.querySelector('.on[class*="image-theme"]').classList.remove('on')
+      target.classList.add('on')
       this.container.classList.remove('image-theme-white')
       this.container.classList.remove('image-theme-yellow')
       this.container.classList.add('image-theme-black')
@@ -107,6 +112,8 @@ class ImageShare{
     }
 
     if(target.classList.contains('image-theme-yellow')){
+      document.querySelector('.on[class*="image-theme"]').classList.remove('on')
+      target.classList.add('on')
       this.container.classList.remove('image-theme-black')
       this.container.classList.remove('image-theme-white')
       this.container.classList.add('image-theme-yellow')
@@ -114,16 +121,20 @@ class ImageShare{
       return
     }
 
-    if(target.classList.contains('image-theme-font1')){
-      this.container.classList.remove('image-theme-font2')
-      this.container.classList.add('image-theme-font1')
+    if(target.classList.contains('image-font-font1')){
+      document.querySelector('.on[class*="image-font"]').classList.remove('on')
+      target.classList.add('on')
+      this.container.classList.remove('image-font-font2')
+      this.container.classList.add('image-font-font1')
       this.createImage()
       return
     }
 
-    if(target.classList.contains('image-theme-font2')){
-      this.container.classList.remove('image-theme-font1')
-      this.container.classList.add('image-theme-font2')
+    if(target.classList.contains('image-font-font2')){
+      document.querySelector('.on[class*="image-font"]').classList.remove('on')
+      target.classList.add('on')
+      this.container.classList.remove('image-font-font1')
+      this.container.classList.add('image-font-font2')
       this.createImage()
       return
     }

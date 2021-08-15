@@ -10,7 +10,9 @@ class Comment {
     this.isShow = false
     this.appendToolbarBtn()
     setTimeout(()=>this.resolveCommentNodes(),1000) //等待文章内容加载完整
+    
   }
+  
 
   handleKeyDown(e){
     // 监听组合快捷键(暂时没用)
@@ -97,8 +99,8 @@ class Comment {
         x           = e.clientX, //事件坐标，用于计算弹框位置
         y           = e.clientY,
         target      = e.target,
-        parent      = target.parentNode,
-        grandParent = parent.parentNode, //可能会点击到按钮中的svg、path 元素，所以需要获取父级元素
+        parent      = target.parentNode || target,
+        grandParent = parent.parentNode || target, //可能会点击到按钮中的svg、path 元素，所以需要获取父级元素
         style       = target.getAttribute('style') //获取 strong 的 style 属性
 
     // 如果之前不存在box，则创建
@@ -395,21 +397,22 @@ class Comment {
         })
       }
       if(quoteNode){
-        // 应该完全移除 strong 标签，但没有找到好的办法，所以暂时先移除 style 属性
-        quoteNode.removeAttribute('style')
+        // 移除 strong 标签
         let selection = getSelection(),
-            range     = document.createRange()
-        range.setStart(quoteNode,0)
-        range.setEnd(quoteNode,quoteNode.childNodes.length)
+            range     = document.createRange(),
+            text      = document.createTextNode(quoteNode.innerText)
+        range.setStart(quoteNode.firstChild,0)
+        range.setEnd(quoteNode.firstChild,quoteNode.firstChild.length )
         selection.removeAllRanges()
-        selection.addRange(range)
+        selection.addRange(range) 
+        quoteNode.remove()
+        range.deleteContents()
+        range.insertNode(text)
         saveViaTransaction()
       }
     }
     this.hiddenBox()
-
   }
-
 
   createBox(){
     let fragment = document.createDocumentFragment()
@@ -446,9 +449,6 @@ class Comment {
       document.body.appendChild(fragment)
   }
 
-  
-
-
   hiddenBox(){
     if(this.box) {
       this.box.style.display = 'none'
@@ -477,7 +477,6 @@ class Comment {
         })
       }
     }
-    
   }
 
   createToolbarBtn(){
@@ -503,7 +502,6 @@ class Comment {
       blankBtn.parentElement.classList.add('fn_none')
       this.addBlank()
     })
-
     fragment.appendChild(divider)
     fragment.appendChild(btn)
     fragment.appendChild(blankBtn)

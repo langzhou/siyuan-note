@@ -41,20 +41,12 @@ strong[style="blank"]:hover{
 #lz-image-container p{
   margin: 0.5em 0;
 }
-#lz-image-container.font1{
-  
-}
 
-#lz-image-container.font2{
-  
-}
 #lz-image-box{
   position: fixed;
   top: 100px;
   left: calc(50% - 250px);
   width: 500px;
-  min-height: 200px;
-  max-height: 600px;
   overflow: hidden;
   z-index: 1000;
   border-radius: 4px;
@@ -79,13 +71,17 @@ strong[style="blank"]:hover{
 #lz-image-box .theme{
   width: 18px;
   height: 18px;
-  border-radius: 2px;
+  border-radius: 3px;
   margin: 0 5px;
   cursor: pointer;
-  border: 1px solid var(--b3-theme-on-surface);
+  border: 1px solid var(--b3-border-color);
   font-size: 12px;
   line-height: 18px;
   text-align: center;
+}
+#lz-image-box .theme.on{
+  /* border: 2px solid var(--b3-theme-primary) !important; */
+  box-shadow: 0 0 2px var(--b3-theme-primary);
 }
 
 .image-theme-black{
@@ -101,10 +97,10 @@ strong[style="blank"]:hover{
   background-color: #F6F1E0;
   color: #473F3C;
 }
-.image-theme-font1{
+.image-font-font1{
   font-family: 'LXGWWenKai';
 }
-.image-theme-font2{
+.image-font-font2{
   font-family: "Pingfang SC", "quote", "Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
 
 }
@@ -128,6 +124,19 @@ strong[style="blank"]:hover{
   border: 1px solid var(--b3-theme-primary);
   background-color: var(--b3-theme-primary);
   color: var(--b3-theme-on-primary);
+}
+#lz-image-box .image{
+  min-height: 150px;
+  max-height: 550px;
+  overflow-y: scroll;
+}
+#lz-image-box .image::-webkit-scrollbar{
+  width: 3px;
+  border-radius: 5px;
+}
+#lz-image-box .image .tips{
+  text-align: center;
+  padding-top: 50px;
 }
 #lz-image-box .image img{
   width: 100%;
@@ -160,6 +169,12 @@ strong[style*="quote"]:hover{
   border-radius: 3px;
   padding: 10px 0;
   
+}
+#lz-comment-box a{
+  border-bottom: 1px solid var(--b3-theme-primary);
+}
+#lz-comment-box a:hover{
+  text-decoration: none;
 }
 #lz-comment-box .list{
   width: 100%;
