@@ -24,6 +24,29 @@ export function setSettings(value,type='user'){
 }
 
 /**
+ * 创建弹框遮罩
+ * @param {*} obj 对象句柄
+ * @param {*} type 弹框样式： black 半透明遮罩；default 透明遮罩
+ * @returns 
+ */
+export function createOverlay(obj=this,type){
+  let className = ''
+  if(type == 'black'){
+    className = 'lz-overlay-black'
+  }else{
+    className = 'lz-overlay'
+  }
+  let overlay = document.querySelector(`.${className}`)
+    if(overlay){
+      obj.overlay = overlay
+    }else{
+      obj.overlay = document.createElement('div')
+      obj.overlay.className = className
+    }
+    return obj.overlay
+}
+
+/**
  * 通过触发 protyle input 事件来保存 block 内容，需要确保 protyle 获得焦点
  */
 export function saveViaTransaction(){

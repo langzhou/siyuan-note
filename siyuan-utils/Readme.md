@@ -34,7 +34,7 @@ Local Script 已实现的功能（部分源码未更新）：
 - 安装 `npm install`
 - 运行 `npm run dev`
 - 构建 `npm run build`
-## Preview
+## 功能预览
 
 ### Comment
 

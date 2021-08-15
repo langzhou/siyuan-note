@@ -59,12 +59,13 @@ class SiyuanUtils{
       }
       this.imageShare.showBox()
     }
+    
     // shift+alt+p 弹出快捷搜索框
     if(e.shiftKey && e.altKey && e.code =='KeyP'){
       e.preventDefault()
       e.stopPropagation()
       if(this.searchBox){
-        this.searchBox.create() //创建搜索框
+        this.searchBox.create()  //创建搜索框
         this.searchBox.showBox() //展示搜索框
       }
     }
