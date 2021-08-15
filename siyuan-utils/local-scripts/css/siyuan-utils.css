@@ -6,7 +6,7 @@ strong[style="blank"]{
   /* border: 1px solid var(--b3-theme-on-background); */
   border-radius: 1px;
   transition: all 300ms ease-in-out;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 strong[style="blank"]:hover{
   color: var(--b3-theme-on-background);
@@ -142,6 +142,7 @@ strong[style*="quote"]{
   font-weight: normal;
 }
 strong[style*="quote"]:hover{
+  cursor: pointer;
   /* background-color: rgb(255, 212, 0); */
 }
 

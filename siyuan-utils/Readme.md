@@ -27,8 +27,10 @@ Local Script 已实现的功能（部分源码未更新）：
 - index.js 入口文件
 - /libs 类库
 - /utils 工具包
-- /css 样式表
-- /assets 静态资源文件
+- /local-scripts 挂件文件
+- /local-scripts/index.js 打包后用于注入的js
+- /local-scripts/css 样式表
+- /local-scripts/assets 静态资源文件
 
 项目命令
 - 安装 `npm install`

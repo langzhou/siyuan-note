@@ -150,9 +150,7 @@ class ImageShare{
       let selection = getSelection()
       let rangeTxt = selection.getRangeAt(0).toString()
       txt = rangeTxt || this.lastSelection
-      if(rangeTxt){
-        this.lastSelection = rangeTxt
-      }
+      if(rangeTxt) this.lastSelection = rangeTxt
       html += `<p>${txt}</p>`
     }
     this.container.innerHTML = html
