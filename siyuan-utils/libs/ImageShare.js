@@ -7,9 +7,9 @@ class ImageShare{
     this.box        = null
     this.container  = null
     this.image      = null
-    this.importFonts()
   }
 
+  /* 导入排版需要的字体 */
   importFonts(){
     let font = document.createElement('style')
     font.className = 'image-share-font'
@@ -41,6 +41,7 @@ class ImageShare{
   }
 
   createBox(){
+    this.importFonts() //导入字体
     let fragment = document.createDocumentFragment()
     this.box = document.createElement('div')
     this.box.id = 'lz-image-box'
@@ -81,7 +82,6 @@ class ImageShare{
   handleEvents(e){
     let target = e.target
     if(target.classList.contains('copy')){
-      console.log('copy');
       this.copy()
       return
     }
@@ -90,34 +90,43 @@ class ImageShare{
       this.save()
       return
     }
+
     if(target.classList.contains('image-theme-white')){
       this.container.classList.remove('image-theme-black')
       this.container.classList.remove('image-theme-yellow')
       this.container.classList.add('image-theme-white')
       this.createImage()
+      return
     }
+
     if(target.classList.contains('image-theme-black')){
       this.container.classList.remove('image-theme-white')
       this.container.classList.remove('image-theme-yellow')
       this.container.classList.add('image-theme-black')
       this.createImage()
+      return
     }
+
     if(target.classList.contains('image-theme-yellow')){
       this.container.classList.remove('image-theme-black')
       this.container.classList.remove('image-theme-white')
       this.container.classList.add('image-theme-yellow')
       this.createImage()
+      return
     }
 
     if(target.classList.contains('image-theme-font1')){
       this.container.classList.remove('image-theme-font2')
       this.container.classList.add('image-theme-font1')
       this.createImage()
+      return
     }
+
     if(target.classList.contains('image-theme-font2')){
       this.container.classList.remove('image-theme-font1')
       this.container.classList.add('image-theme-font2')
       this.createImage()
+      return
     }
   }
 
@@ -157,14 +166,11 @@ class ImageShare{
   }
 
   save(){
-    if(this.img){
-      let url = this.img.src
-      let a = document.createElement('a')
-      let event = new MouseEvent('click')
-      a.save =  '思源笔记分享'
-      a.href = url
-      a.dispatchEvent(event)
-    }
+    let a = document.createElement('a')
+    let event = new MouseEvent('click')
+    a.save = '思源笔记分享'
+    a.href = this.img.src
+    a.dispatchEvent(event)
   }
 
   /* 代码参考：https://segmentfault.com/a/1190000038507601 */
@@ -185,7 +191,7 @@ class ImageShare{
         ia[i] = bytes.charCodeAt(i);
     }
     return new Blob([ab], { type: type });
-}
+  }
 }
 
 export default ImageShare
