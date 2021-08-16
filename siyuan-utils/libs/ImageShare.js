@@ -33,6 +33,7 @@ class ImageShare{
     if(this.box){
       this.box.style.display = 'none'
       this.boxBody.innerHTML = '<div class="tips">图片生成中...<div>'
+      this.container.innerHTML = ''
     }
     if(this.overlay){
       this.overlay.style.display = 'none'
@@ -74,7 +75,7 @@ class ImageShare{
     this.overlay.addEventListener('click',()=>this.hiddenBox())
     this.container = document.createElement('div')
     this.container.id = 'lz-image-container'
-    this.container.className = 'image-theme-white image-theme-font1'
+    this.container.className = 'image-theme-white image-font-font1'
     fragment.appendChild(this.container)
     document.body.appendChild(fragment)
   }
@@ -154,7 +155,8 @@ class ImageShare{
     let html = ''
     if(blocks.length > 0){
       blocks.forEach((item,index,node)=>{
-        html += `<p>${item.innerText}</p>`
+        // html += `<p>${item.innerText}</p>`
+        html += item.innerHTML
       })
     }else{
       let txt = ''

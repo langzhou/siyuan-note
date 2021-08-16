@@ -16,6 +16,9 @@ class SiyuanUtils{
     this.comment = new Comment()
     this.handleEvents()
     this.domWatcher()
+    document.addEventListener('copy',e=>{
+      console.log('copy');
+    })
   }
 
   /* 事件委托 */
@@ -50,6 +53,13 @@ class SiyuanUtils{
 
   /* 快捷键注册 */
   shortcutKey(e){
+    // shift+alt+t for test
+    if(e.shiftKey && e.altKey && e.code =='KeyT'){
+      e.preventDefault()
+      e.stopPropagation()
+      // this.comment.createBlock()
+    }
+    
     // shift+alt+s 弹出图片分享
     if(e.shiftKey && e.altKey && e.code =='KeyS'){
       e.preventDefault()

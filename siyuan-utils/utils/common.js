@@ -1,4 +1,5 @@
 import { sysConfig as config } from "./config"
+import lodash from 'lodash'
 
 export var getSettings = (type)=>{
   let settings = JSON.parse(localStorage.getItem(`${config.nameSpace}-setting`))
@@ -45,6 +46,17 @@ export function createOverlay(obj=this,type){
     }
     return obj.overlay
 }
+
+/**
+ * 生成数字与字母的随机组合
+ * @param {*} len 组合长度
+ * @returns 
+ */
+export function randomString(len) {
+  const charSet = 'abcdefghijklmnopqrstuvwxyz0123456789cdd13099';
+  return lodash.sampleSize(charSet,len).toString().replace(/,/g, '');
+}
+
 
 /**
  * 通过触发 protyle input 事件来保存 block 内容，需要确保 protyle 获得焦点

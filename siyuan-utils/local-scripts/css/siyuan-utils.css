@@ -38,10 +38,15 @@ strong[style="blank"]:hover{
   padding: 1em;
   line-height: 1.7em;
 }
-#lz-image-container p{
+#lz-image-container div[contenteditable="true"]{
   margin: 0.5em 0;
 }
-
+#lz-image-container u{
+  text-decoration: none;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  padding-bottom: 2px;
+}
 #lz-image-box{
   position: fixed;
   top: 100px;
@@ -94,8 +99,8 @@ strong[style="blank"]:hover{
 
 }
 .image-theme-yellow{
-  background-color: #F6F1E0;
-  color: #473F3C;
+  background-color: #fffcf7;
+  color: #665542;
 }
 .image-font-font1{
   font-family: 'LXGWWenKai';

@@ -2,7 +2,7 @@
 import dayjs from "dayjs"
 import icons from "../utils/icons"
 import { setAttrs } from "../utils/network"
-import { snackbar, computeBoxPosition, saveViaTransaction } from "../utils/common"
+import { snackbar, computeBoxPosition, saveViaTransaction, randomString } from "../utils/common"
 
 class Comment {
 
@@ -87,6 +87,34 @@ class Comment {
       div.addEventListener('click',(e)=>this.showBox(e))
       contentBlock.nextSibling.appendChild(div)
     }
+  }
+
+  /**
+   * 新增 block （for test）
+   */
+  createBlock(){
+    let now = dayjs().format('YYYYMMDDHHmmss')
+    let protyle = document.querySelector('.fn__flex-1.protyle:not(.fn__none) .protyle-wysiwyg.protyle-wysiwyg--attr') //需要获取到当前正在编辑的 protyle
+    let nodeId =  now + '-' + randomString(7)
+    console.log(nodeId);
+    let block = document.createElement('div')
+    block.setAttribute('data-node-id',nodeId)
+    block.setAttribute('data-type','NodeParagraph')
+    block.setAttribute('update',now)
+    block.setAttribute('data-eof',true)
+    block.setAttribute('data-node-index',7)
+    block.className = 'p'
+    block.innerHTML = 
+    `<div contenteditable="true" spellcheck="false">Test block</div><div class="protyle-attr" contenteditable="false"></div></div>`
+    console.log(block);
+    protyle.appendChild(block)
+    let selection = getSelection()
+    let range = document.createRange()
+    range.setStartAfter(block)
+    selection.removeAllRanges()
+    selection.addRange(range)
+
+    saveViaTransaction()
   }
 
   /**
@@ -272,43 +300,35 @@ class Comment {
         data['comments'][commentId] = {
           id: commentId,
           date:dayjs().format('YYYY/MM/DD HH:mm:ss'),
-          comment:this.input.innerText
+          comment:this.input.innerHTML
         }
         block.setAttribute('custom-'+quoteId,JSON.stringify(data))
 
         let selection = getSelection()
         selection.removeAllRanges()
-        selection.addRange(this.range)
+        selection.addRange(this.range) // 使得 protyle 获得光标
         this.hiddenBox()
       }else{
         // 可能存在 strong 标签还在 block 中属性不存在的情况
-
       }
-
 
     }else{
       // 全新评论
-      // console.log(this.range);
       let selection = getSelection()
       let range     = this.range
       let start     = range.startContainer
-      let end       = range.endContainer
       let block     = start.parentElement.parentElement //由于没有一炮三响了，所以列表项上无法在属性弹框中看到存储的评论内容
       let txt       = range.toString()
-
       range.deleteContents()
-      
       let strongNode = document.createElement('strong')
-      
       strongNode.innerText = txt
       let id = dayjs().format('YYYYMMDDHHmmss'),
           quoteId   = 'quote-'+ id,
           commentId = 'comment-' + id
-
       let data = {
         id:commentId,
         date: dayjs().format('YYYY/MM/DD HH:mm:ss'),
-        comment:this.input.innerText
+        comment:this.input.innerHTML
       }
 
       let comments = {}
@@ -325,14 +345,11 @@ class Comment {
       range.insertNode(strongNode)
       range.setStartAfter(strongNode)
       range.collapse(true) //取消文本选择状态
-
       selection.removeAllRanges()
       selection.addRange(range)
       this.hiddenBox()
     }
-
     saveViaTransaction()
-  
   }
 
   /**
@@ -348,9 +365,33 @@ class Comment {
     range.deleteContents()
     range.insertNode(strongNode)
     range.setStartAfter(strongNode)
-    selection.removeAllRanges()
-    selection.addRange(range)
     saveViaTransaction()
+  }
+
+  /**
+   * 评论输入框支持粘贴内容块链接
+   * @param {*} e 
+   */
+  handlePaste(e){
+    e.stopPropagation()
+    const clipdata = e.clipboardData || window.clipboardData;
+    const data = clipdata.getData("text/plain")
+    let selection = getSelection()
+    if(data && selection.toString()){
+      let reg1 = /.*\(\((\d{14}-.*)\)\).*/              //匹配格式：((20210815214330-btqo1b2))
+      let reg2 = /.*siyuan:\/\/blocks\/(\d{14}-\S{7})/  //匹配格式：siyuan://blocks/20210815214330-btqo1b2
+      let result = data.match(reg1) || data.match(reg2)
+      if(result){
+        e.preventDefault()
+        let link = document.createElement('a')
+        link.setAttribute('href','siyuan://blocks/' + result[1])
+        link.innerText = selection.toString()
+        let range = selection.getRangeAt(0)
+        range.deleteContents()
+        range.insertNode(link)
+        range.setStartAfter(link)
+      }
+    }
   }
 
   /* 评论列表事件，主要是移除评论和引文 */
@@ -408,6 +449,7 @@ class Comment {
         quoteNode.remove()
         range.deleteContents()
         range.insertNode(text)
+        range.setStartAfter(text)
         saveViaTransaction()
       }
     }
@@ -420,7 +462,7 @@ class Comment {
       this.box.id = 'lz-comment-box'
       this.list = document.createElement('div')
       this.list.className = 'list'
-      this.list.addEventListener('click',e=>this.handleListEvents(e))
+      this.list.addEventListener('click',e => this.handleListEvents(e))
 
       this.add = document.createElement('div')
       this.add.className = 'add'
@@ -430,6 +472,8 @@ class Comment {
       this.input.setAttribute('placeholder','say something ..')
       this.input.setAttribute('spellcheck',false)
       this.input.setAttribute('data-quote-id','')
+      this.input.addEventListener('paste',e => this.handlePaste(e))
+
       this.btn = document.createElement('div')
       this.btn.className = 'btn'
       this.btn.innerText = '评论'
