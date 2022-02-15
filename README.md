@@ -14,7 +14,7 @@
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
 
-2022.02.15：更新 Note Views 及 Little Things 源码(文件夹：widgets/raw/)
+2022.02.15：更新 Note Views 及 Little Things 源码(文件夹：widgets/source/)
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
