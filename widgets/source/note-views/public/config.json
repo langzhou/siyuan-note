@@ -1,0 +1,7 @@
+{
+  "danger":   ["紧急","重要","高优先级","高","high","important"],
+  "warning":  ["问题","进行中","中优先级","中","medium"] ,
+  "success":  ["完成","低优先级","低","low"],
+  "primary":  ["待办","todo"] 
+  
+}
