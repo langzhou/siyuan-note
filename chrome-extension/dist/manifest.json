@@ -1,0 +1,68 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_appTitle__",
+    "version": "0.0.1",
+    "description": "__MSG_appDescription__",
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "__MSG_actionTitle__",
+        "default_popup": "libs_popup.html",
+        "default_icon": {
+            "16": "/assets/images/icon16.png",
+            "32": "/assets/images/icon32.png",
+            "48": "/assets/images/icon48.png",
+            "64": "/assets/images/icon64.png",
+            "128": "/assets/images/icon128.png"
+        }
+    },
+    "icons": {
+        "16": "/assets/images/icon16.png",
+        "32": "/assets/images/icon32.png",
+        "48": "/assets/images/icon48.png",
+        "64": "/assets/images/icon64.png",
+        "128": "/assets/images/icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*:6806/*"
+            ],
+            "js": [
+                "content/core.js"
+            ],
+            "css": [
+                "element.css",
+                "siyuan-utils.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "options_ui": {
+        "page": "libs_options.html",
+        "open_in_tab": true
+    },
+    "default_locale": "zh_CN",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "element-icons.woff",
+                "element-icons.ttf",
+                "libs_options.html"
+            ],
+            "matches": [
+                "http://*:6806/*"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    },
+    "permissions": [
+        "storage"
+    ]
+}
