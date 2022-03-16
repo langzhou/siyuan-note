@@ -9,12 +9,9 @@ import {
 } from './utils.js'
 import {
   querySQL,
-  setBlockAttrs,
   insertBlock,
-  prependBlock,
   appendBlock,
   deleteBlock,
-  request,
 } from './network.js'
 
 
@@ -27,7 +24,7 @@ class Comment{
     // setTimeout(()=>this.resolveCommentNodes(),1000) //等待文章内容加载完整后解析评论span todo
   }
 
-  handleKeyDown(e){
+  async handleKeyDown(e){
     // 监听组合快捷键(暂时没用)
     // if(e.shiftKey && e.altKey && e.code =='KeyC'){
     //   e.preventDefault()
@@ -39,7 +36,7 @@ class Comment{
     if(this.isShow && e.key == 'Enter'){
       e.preventDefault()
       e.stopPropagation()
-      this.submitComment()
+      await this.submitComment()
     }
 
     // esc 关闭 box
@@ -110,7 +107,7 @@ class Comment{
    * 提交评论
    * @returns
    */
-  submitComment(){
+  async submitComment(){
     // 输入框内容为空
     if(!this.input.innerText){
       this.hiddenBox()
@@ -140,18 +137,10 @@ class Comment{
       let strongNode = document.createElement('strong')
       strongNode.innerText = txt
       quoteId = createBlockId()
-      this.appendBlocks(txt, block.getAttribute('data-node-id'), quoteId)
+      this.appendBlocks(txt, block.dataset.nodeId, quoteId)
       strongNode.setAttribute('style', 'quote-' + quoteId)
-
-      let attrsName = `custom-${quoteId}`
-      let data = {
-        id: blockId,
-        attrs: {},
-      }
-      data.attrs[attrsName] = "true"
-      await setBlockAttrs(data)
-      // block.setAttribute('custom-' + quoteId,"true")
       
+      block.setAttribute('custom-' + quoteId,"true")
       range.insertNode(strongNode)
       range.setStartAfter(strongNode)
       range.collapse(true) //取消文本选择状态
@@ -278,20 +267,12 @@ ${commentMd}
     if(target.className == 'delete-quote'){
       let quoteId   = target.getAttribute('data-quote-id'),
           quoteNode = document.querySelector(`strong[style*="quote-${quoteId}"]`),
-          block     = document.querySelector(`[custom-${quoteId}]`)
+          block     = document.querySelector(`[data-node-id][custom-${quoteId}]`)
       let blockId     = block.dataset.nodeId
       if(block){
         // 移除 block 中的属性
-        let attrsName = `custom-${quoteId}`
-        let data = {
-          id: blockId,
-          attrs: {},
-        }
-        data.attrs[attrsName] = ""
-        await setBlockAttrs(data)
-        // block.removeAttribute(`custom-${quoteId}`)
+        block.removeAttribute(`custom-${quoteId}`)
       }
-
       if(quoteNode){
         // 移除 strong 标签
         let selection = getSelection(),
@@ -328,7 +309,7 @@ ${commentMd}
         on
           a.block_id = b.id
         where
-          and a.name = 'custom-quote-id'
+          a.name = 'custom-quote-id'
           and a.value = '${quoteId}'
           and b.type = 's'
       `)
@@ -580,7 +561,7 @@ ${commentMd}
       this.btn = document.createElement('div')
       this.btn.className = 'btn'
       this.btn.innerText = '评论'
-      this.btn.addEventListener('click',()=>this.submitComment())
+      this.btn.addEventListener('click',async ()=>this.submitComment())
       this.add.appendChild(this.input)
       this.add.appendChild(this.btn)
 
