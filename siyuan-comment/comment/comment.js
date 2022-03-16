@@ -108,9 +108,7 @@ class Comment{
       //追加评论
       let blockId = document.querySelector(`div[custom-${quoteId}]`).getAttribute('data-node-id') //comment 所在 block
       let quoteText = document.querySelector(`strong[style*="quote-${quoteId}"]`).innerText
-
       this.appendBlocks(quoteText,blockId,quoteId)
-
       let selection = getSelection()
       selection.removeAllRanges()
       selection.addRange(this.range) // 使得 protyle 获得光标
@@ -128,8 +126,8 @@ class Comment{
       strongNode.innerText = txt
       quoteId = createBlockId()
       this.appendBlocks(txt, block.getAttribute('data-node-id'), quoteId)
-
       strongNode.setAttribute('style','quote-' + quoteId)
+      block.setAttribute('custom-' + quoteId,"true")
       range.insertNode(strongNode)
       range.setStartAfter(strongNode)
       range.collapse(true) //取消文本选择状态
@@ -195,8 +193,13 @@ class Comment{
 
     if(target.className == 'delete-quote'){
       let quoteId   = target.getAttribute('data-quote-id'),
-          quoteNode = document.querySelector(`strong[style*="quote-${quoteId}"]`)
-     
+          quoteNode = document.querySelector(`strong[style*="quote-${quoteId}"]`),
+          block     = document.querySelector(`[custom-${quoteId}]`)     
+      if(block){
+        // 移除 block 中的属性
+        block.removeAttribute(`custom-${quoteId}`)
+      }
+      
       if(quoteNode){
         // 移除 strong 标签
         let selection = getSelection(),
