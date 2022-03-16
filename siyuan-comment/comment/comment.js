@@ -141,8 +141,17 @@ class Comment{
       strongNode.innerText = txt
       quoteId = createBlockId()
       this.appendBlocks(txt, block.getAttribute('data-node-id'), quoteId)
-      strongNode.setAttribute('style','quote-' + quoteId)
-      block.setAttribute('custom-' + quoteId,"true")
+      strongNode.setAttribute('style', 'quote-' + quoteId)
+
+      let attrsName = `custom-${quoteId}`
+      let data = {
+        id: blockId,
+        attrs: {},
+      }
+      data.attrs[attrsName] = "true"
+      await setBlockAttrs(data)
+      // block.setAttribute('custom-' + quoteId,"true")
+      
       range.insertNode(strongNode)
       range.setStartAfter(strongNode)
       range.collapse(true) //取消文本选择状态
