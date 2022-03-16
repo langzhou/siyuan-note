@@ -1,5 +1,5 @@
 
-![preview]()
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
 
 ## 前言
 
@@ -22,6 +22,8 @@
 ## 使用方法
 
 将 `theme.js`文件和 `comment`文件复制到常用的主题文件夹目录即可。
+
+如果您觉得这项功能能带来实际帮助，订阅思源时欢迎使用我的邀请码 `4EY48YJ`
 
 ## 待完善功能
 

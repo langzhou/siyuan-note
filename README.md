@@ -4,6 +4,11 @@
 
 如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
 
+## Siyuan Comment
+
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
+
+思源笔记行内评论功能，详细说明请点击 [Siyuan Comment](https://github.com/langzhou/siyuan-note/tree/main/siyuan-comment)
 ## Siyuan Utils
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
