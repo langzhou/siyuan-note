@@ -1,6 +1,8 @@
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
 
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview2.png)
+
 ## 前言
 
 行内评论一直是我很期盼的功能，对于一段笔记而言，借助评论可以不断的反刍或沉淀自己的想法，或者和其他的内容块进行关联。
