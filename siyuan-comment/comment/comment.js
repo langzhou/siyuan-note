@@ -1,6 +1,21 @@
 import config from './config.js'
-import { snackbar, computeBoxPosition, createBlockId, saveViaTransaction, formatSYDate } from './utils.js'
-import { querySQL, insertBlock, request } from './network.js'
+import {
+  snackbar,
+  computeBoxPosition,
+  createBlockId,
+  saveViaTransaction,
+  formatSYDate,
+  dateFormat,
+} from './utils.js'
+import {
+  querySQL,
+  setBlockAttrs,
+  insertBlock,
+  prependBlock,
+  appendBlock,
+  deleteBlock,
+  request,
+} from './network.js'
 
 
 class Comment{
@@ -35,12 +50,12 @@ class Comment{
 
   /**
    * 渲染弹出框内的评论列表
-   * @param {*} node 
+   * @param {*} node
    * @param {*} from 点击来源位置
    */
   async renderCommentsHtml(node,from){
 
-    let html = '' 
+    let html = ''
 
     switch(from){
       case 'toolbar':
@@ -55,7 +70,7 @@ class Comment{
         let quoteId = node.getAttribute('style');
         if(quoteId && quoteId.indexOf('quote') > -1){
           quoteId = quoteId.replace("quote-","")  //移除 style 属性中用于表示的“quote”,获得原始 id
-          let sql      = `select * from blocks as b left join attributes as a on b.id = a.block_id where a.name = 'custom-quote-id' and a.value = '${quoteId}' and b.type = 'p'`,
+          let sql      = `select * from blocks as b left join attributes as a on b.id = a.block_id where a.name = 'custom-quote-id' and a.value = '${quoteId}' and b.type = 'p' order by b.created`,
               res      = await querySQL(sql),
               quote    = node.innerText,
               comments = res.data
@@ -83,7 +98,7 @@ class Comment{
           this.input.setAttribute('data-quote-id',quoteId)
           this.list.innerHTML = html
         }
-        
+
         break
 
       default:
@@ -93,7 +108,7 @@ class Comment{
 
   /**
    * 提交评论
-   * @returns 
+   * @returns
    */
   submitComment(){
     // 输入框内容为空
@@ -133,7 +148,7 @@ class Comment{
       range.collapse(true) //取消文本选择状态
       selection.removeAllRanges()
       selection.addRange(range)
-      this.hiddenBox()      
+      this.hiddenBox()
     }
 
     saveViaTransaction()
@@ -150,35 +165,95 @@ class Comment{
     let activeEditor = document.querySelector('.fn__flex-column.fn__flex.fn__flex-1.layout__wnd--active') //获得当前光标所在页面
     let docId = activeEditor.querySelector('.fn__flex-1.protyle:not(.fn__none) .protyle-background').getAttribute('data-node-id'); //获得当前编辑的文章 id
 
-    //评论内容块
-    let commentHtml = `<div data-node-id="${createBlockId()}" custom-quote-id="${quoteId}" data-type="NodeParagraph" class="p" updated="${createBlockId(false)}" data-eof="true"><div contenteditable="true" spellcheck="false">${this.input.innerHTML}</div><div class="protyle-attr"></div></div>`
-    //引文内容块
-    let quoteHtml = `<div data-node-id="${createBlockId()}"  data-type="NodeBlockquote" class="bq" updated="${quoteId}" data-eof="true" custom-quote-id="${quoteId}"><div data-node-id="${createBlockId()}" data-type="NodeParagraph" class="p" updated="${createBlockId()}"><div contenteditable="true" spellcheck="false"><span data-type="a" data-href="siyuan://blocks/${blockId}">${quoteText}</span></div><div class="protyle-attr" contenteditable="false"></div></div><div class="protyle-attr" contenteditable="false"></div></div>`
-    //批注 h4 标题
-    let headerHtml = `<div data-subtype="h4" data-node-id="${createBlockId()}" data-type="NodeHeading" class="h4" style="comment-header" updated="${createBlockId(false)}"><div contenteditable="true" spellcheck="false">批注</div><div class="protyle-attr" contenteditable="false"></div></div>`
-    // 分割线
-    let hrHtml = `<div data-node-id="${createBlockId()}" data-type="NodeThematicBreak" class="hr" ></div>`
+    // 批注 h4 标题
+    // let headerHtml = `<div data-subtype="h4" data-node-id="${createBlockId()}" data-type="NodeHeading" class="h4" style="comment-header" updated="${createBlockId(false)}"><div contenteditable="true" spellcheck="false">批注</div><div class="protyle-attr" contenteditable="false"></div></div>`
+    let headerMd = `
+#### 批注
+{: custom-quote-type="${config.attrs.type.heading}"}
+`
 
-    //先判断是否存在「批注」header，没有则添加，然后依次插入 block（虽然可以一次性批量添加，但不建议，因为可能导致不会及时更新到页面）
-    let header = activeEditor.querySelector('.fn__flex-1.protyle:not(.fn__none) div[style*="comment-header"]')
-    if(!header){
-      await this.appendBlockDom(headerHtml, docId)
-      await this.appendBlockDom(hrHtml, docId)
+    // 评论内容块
+    // let commentHtml = `<div data-node-id="${createBlockId()}" custom-quote-id="${quoteId}" data-type="NodeParagraph" class="p" updated="${createBlockId(false)}" data-eof="true"><div contenteditable="true" spellcheck="false">${this.input.innerHTML}</div><div class="protyle-attr"></div></div>`
+    let commentMd = `
+${this.input.innerHTML}
+{: custom-quote-id="${quoteId}" custom-quote-type="${config.attrs.type.comment}" custom-quote-time="${dateFormat("YYYY-mm-dd HH:MM:SS", new Date())}"}
+`
+
+    // 引文内容块
+    // let quoteHtml = `<div data-node-id="${createBlockId()}"  data-type="NodeBlockquote" class="bq" updated="${quoteId}" data-eof="true" custom-quote-id="${quoteId}"><div data-node-id="${createBlockId()}" data-type="NodeParagraph" class="p" updated="${createBlockId()}"><div contenteditable="true" spellcheck="false"><span data-type="a" data-href="siyuan://blocks/${blockId}">${quoteText}</span></div><div class="protyle-attr" contenteditable="false"></div></div><div class="protyle-attr" contenteditable="false"></div></div>`
+    let quoteMd = `
+> [${quoteText}](siyuan://blocks/${blockId})
+{: custom-quote-id="${quoteId}" custom-quote-type="${config.attrs.type.quote}"}
+`
+
+    // 分割线
+    // let hrHtml = `<div data-node-id="${createBlockId()}" data-type="NodeThematicBreak" class="hr" ></div>`
+    // 先判断是否存在「批注」header，没有则添加，然后依次插入 block（虽然可以一次性批量添加，但不建议，因为可能导致不会及时更新到页面）
+    // let header = activeEditor.querySelector('.fn__flex-1.protyle:not(.fn__none) div[style*="comment-header"]')
+    let res = await querySQL(`
+      select
+        *
+      from
+        attributes as a
+      where
+        a.root_id = '${docId}'
+        and a.name = 'custom-quote-type'
+        and a.value = '${config.attrs.type.heading}'
+    `)
+    // console.log(res)
+    if (res && res.code == 0 && res.data.length == 0) {
+      // 没有批注标题块，则添加
+      await this.appendBlockMd(headerMd, docId)
+    }
+
+    res = await querySQL(`
+      select
+        b.id
+      from
+        blocks as b
+      inner join
+        attributes as a
+      on
+        a.block_id = b.id
+      where
+        a.root_id = '${docId}'
+        and a.name = 'custom-quote-id'
+        and a.value = '${quoteId}'
+        and b.type = 's'
+    `)
+    // console.log(res)
+    if (res && res.code == 0) {
+      if (res.data.length == 0) {
+        // 没有关联当前评论的超级块(容器块)，则添加
+        let containerMd = `
+{{{row
+${quoteMd}
+
+${commentMd}
+}}}
+{: custom-quote-id="${quoteId}" custom-quote-type="${config.attrs.type.container}"}
+`
+        await this.appendBlockMd(containerMd, docId)
+      }
+      else if (res.data.length == 1) {
+        let containerId = res.data[0].id
+        await this.appendBlockMd(commentMd, containerId)
+      }
     }
 
     // 如果已经存在之前的引文评论，则直接在其下方插入新评论
-    let existQuote = activeEditor.querySelector(`.fn__flex-1.protyle:not(.fn__none) .bq[custom-quote-id*="${quoteId}"]`)
-    if(existQuote){
-      await this.insertBlockDom(commentHtml, existQuote.getAttribute('data-node-id'))
-    }else{
-      await this.appendBlockDom(quoteHtml, docId)
-      await this.appendBlockDom(commentHtml, docId)
-    }
+    // let existQuote = activeEditor.querySelector(`.fn__flex-1.protyle:not(.fn__none) .bq[custom-quote-id*="${quoteId}"]`)
+    // if(existQuote){
+    //   await this.insertBlockDom(commentHtml, existQuote.getAttribute('data-node-id'))
+    // }else{
+    //   await this.appendBlockDom(quoteHtml, docId)
+    //   await this.appendBlockDom(commentHtml, docId)
+    // }
 
   }
 
   /* 评论列表事件，主要是移除评论和引文 */
-  handleListEvents(e){
+  async handleListEvents(e){
     e.stopPropagation()
     let target = e.target
     // 删除评论
@@ -186,7 +261,7 @@ class Comment{
       let quoteId   = target.getAttribute('data-quote-id')
       let commentId = target.getAttribute('data-comment-id')
       let block     = document.querySelector(`[custom-${quoteId}]`)
-      this.removeBlock(commentId)
+      deleteBlock(commentId)
       target.parentNode.parentNode.parentNode.remove()
       return
     }
@@ -194,12 +269,20 @@ class Comment{
     if(target.className == 'delete-quote'){
       let quoteId   = target.getAttribute('data-quote-id'),
           quoteNode = document.querySelector(`strong[style*="quote-${quoteId}"]`),
-          block     = document.querySelector(`[custom-${quoteId}]`)     
+          block     = document.querySelector(`[custom-${quoteId}]`)
+      let blockId     = block.dataset.nodeId
       if(block){
         // 移除 block 中的属性
-        block.removeAttribute(`custom-${quoteId}`)
+        let attrsName = `custom-${quoteId}`
+        let data = {
+          id: blockId,
+          attrs: {},
+        }
+        data.attrs[attrsName] = ""
+        await setBlockAttrs(data)
+        // block.removeAttribute(`custom-${quoteId}`)
       }
-      
+
       if(quoteNode){
         // 移除 strong 标签
         let selection = getSelection(),
@@ -208,7 +291,7 @@ class Comment{
         range.setStart(quoteNode.firstChild,0)
         range.setEnd(quoteNode.firstChild,quoteNode.firstChild.length )
         selection.removeAllRanges()
-        selection.addRange(range) 
+        selection.addRange(range)
         quoteNode.remove()
         range.deleteContents()
         range.insertNode(text)
@@ -217,13 +300,33 @@ class Comment{
       }
 
       // 移除文章末尾评论内容
-      let nodes = document.querySelectorAll(`div[custom-quote-id="${quoteId}"]`)
-      if(nodes){
-        for(var node of nodes) {
-          let blockId = node.getAttribute('data-node-id')
-          if(blockId){
-            this.removeBlock(blockId)
-          }
+      // let nodes = document.querySelectorAll(`div[custom-quote-id="${quoteId}"]`)
+      // if(nodes){
+      //   for(var node of nodes) {
+      //     let blockId = node.getAttribute('data-node-id')
+      //     if(blockId){
+      //       deleteBlock(blockId)
+      //     }
+      //   }
+      // }
+      let res = await querySQL(`
+        select
+          b.id
+        from
+          blocks as b
+        inner join
+          attributes as a
+        on
+          a.block_id = b.id
+        where
+          and a.name = 'custom-quote-id'
+          and a.value = '${quoteId}'
+          and b.type = 's'
+      `)
+      // console.log(res)
+      if (res && res.code == 0) {
+        if (res.data.length == 1) {
+          await deleteBlock(res.data[0].id)
         }
       }
     }
@@ -231,50 +334,64 @@ class Comment{
   }
 
   /**
-   * 移除 block
-   * @param {*} blockId 
-   */
-  removeBlock(blockId){
-    let data = {
-      "id": blockId
-    }
-    return request('/api/block/deleteBlock', data)
-  }
-
-  /**
    * 插入新块
-   * @param {*} html 
+   * @param {*} html
    * @param {*} previousId 前一个块的位置
-   * @returns 
+   * @returns
    */
   insertBlockDom(html, previousId){
-    let data = {
+    return insertBlock({
       "data": html,
       "dataType": "dom",
       "previousID": previousId
-    }
-    return request('/api/block/insertBlock',data)
+    })
+  }
+
+  /**
+   * 以 markdown 的形式插入新块
+   * @param {*} html
+   * @param {*} previousId 前一个块的位置
+   * @returns
+   */
+  insertBlockMd(md, previousId){
+    return insertBlock({
+      "data": md,
+      "dataType": "markdown",
+      "previousID": previousId
+    })
   }
 
   /**
    * 以 dom 的形式插入后置子块
-   * @param {string} html 
-   * @param {string} parentId 
-   * @returns 
+   * @param {string} html
+   * @param {string} parentId
+   * @returns
    */
   appendBlockDom(html, parentId){
-    let data = 
-      {
-        "data": html,
-        "dataType": "dom",
-        "parentID": parentId
-      }
-    return insertBlock(data)
+    return appendBlock({
+      "data": html,
+      "dataType": "dom",
+      "parentID": parentId
+    })
+  }
+
+  /**
+   * 以 markdown 的形式插入后置子块
+   * @param {string} md
+   * @param {string} parentId
+   * @returns
+   */
+  appendBlockMd(md, parentId){
+    return appendBlock({
+      "data": md,
+      "dataType": "markdown",
+      "parentID": parentId
+    })
   }
 
   /**
    * TODO: 评论输入框支持粘贴内容块链接
-   * @param {*} e 
+   * @param {*} e
    */
   handlePaste(e){
     e.stopPropagation()
@@ -300,7 +417,7 @@ class Comment{
 
   /**
    * 响应文本选择事件
-   * @param {event} e 
+   * @param {event} e
    */
   handleSelectionEvent(e){
     let node = e.target, inProtyle = false
@@ -315,7 +432,7 @@ class Comment{
 
     if(inProtyle){
       let selection = getSelection()
-      // 获得文本选择事件的坐标，用于确定弹出 comment box 的位置 
+      // 获得文本选择事件的坐标，用于确定弹出 comment box 的位置
       if(selection.rangeCount > 0 && selection.getRangeAt(0).toString()){
         this.selectionX = e.clientX
         this.selectionY = e.clientY
@@ -327,21 +444,21 @@ class Comment{
   }
 
   /**
-   *  解析文章中的 comment 元素 
+   *  解析文章中的 comment 元素
    */
   resolveCommentNodes(){
     let elements = document.querySelectorAll('strong[style*="quote"]')
     if(elements){
       elements.forEach((item,index,node)=>{
         // 在内容块右侧添加图标
-        this.createBlockIcon(item.parentElement) 
+        this.createBlockIcon(item.parentElement)
       })
     }
   }
 
   /**
    * 在内容块右侧添加图标
-   * @param {*} contentBlock 
+   * @param {*} contentBlock
    */
   createBlockIcon(contentBlock){
     let sibling = contentBlock.nextSibling
@@ -352,11 +469,11 @@ class Comment{
       div.addEventListener('click',(e)=>this.showBox(e))
       contentBlock.nextSibling.appendChild(div)
     }
-  }  
+  }
 
   /**
      * 弹出 box
-     * @param {*} e 
+     * @param {*} e
      */
   showBox(e){
   let show        = false, //用来决定是否弹出 box
@@ -386,11 +503,11 @@ class Comment{
         snackbar('没有选中内容','danger')
       }else{
         this.range = range // 因为弹出 box 后，选区会消失，所以提前存储 range
-        show = true   
-        from = 'toolbar' 
+        show = true
+        from = 'toolbar'
       }
     }
-    
+
   }else
   if(style && style.indexOf('quote') > -1 && getSelection().toString() == ''){
     // 2)点击 block 引文触发
@@ -398,14 +515,14 @@ class Comment{
     show = true
     from = 'block'
     this.range = getSelection().getRangeAt(0)
-  }else 
+  }else
   if(target.classList.contains('protyle-attr--comment')  || parent.classList.contains('protyle-attr--comment') || grandParent.classList.contains('protyle-attr--comment')){
     // 3)点击内容块右侧图标触发
     e.stopPropagation()
     show = true
     from = 'attr'
   }
-  
+
   if(show){
     this.isShow = true
     this.box.style.display = 'block'
@@ -416,7 +533,7 @@ class Comment{
       this.add.style.display = 'flex'
       this.input.focus()
     }
-    
+
     this.renderCommentsHtml(target,from) //获取评论列表
 
     // 如果是从 toolbar 触发，box 的坐标不参照事件坐标，而是参照文本选区坐标
@@ -439,7 +556,7 @@ class Comment{
       this.box.id = 'lz-comment-box'
       this.list = document.createElement('div')
       this.list.className = 'list'
-      this.list.addEventListener('click',e => this.handleListEvents(e))
+      this.list.addEventListener('click',async e => this.handleListEvents(e))
 
       this.add = document.createElement('div')
       this.add.className = 'add'
@@ -462,10 +579,10 @@ class Comment{
       this.overlay = document.createElement('div')
       this.overlay.className = 'lz-overlay'
       this.overlay.addEventListener('click',()=>this.hiddenBox())
-      
+
       this.box.appendChild(this.list)
       this.box.appendChild(this.add)
-      
+
       fragment.appendChild(this.box)
       fragment.appendChild(this.overlay)
       document.body.appendChild(fragment)
@@ -513,7 +630,7 @@ class Comment{
 
   /**
    * 创建 toolbar 功能按钮
-   * @returns 
+   * @returns
    */
   createToolbarBtn(){
     let fragment = document.createDocumentFragment()
