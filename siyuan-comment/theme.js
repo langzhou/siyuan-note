@@ -22,7 +22,6 @@ function inject(){
   }else{
     setTimeout(()=>inject(),500)
   }
-
 }
 
 inject()

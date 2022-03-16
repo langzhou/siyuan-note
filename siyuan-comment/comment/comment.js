@@ -55,7 +55,7 @@ class Comment{
         let quoteId = node.getAttribute('style');
         if(quoteId && quoteId.indexOf('quote') > -1){
           quoteId = quoteId.replace("quote-","")  //移除 style 属性中用于表示的“quote”,获得原始 id
-          let sql = `select * from blocks as b left join attributes as a on b.id = a.block_id where a.name = 'custom-quote-id' and a.value = '${quoteId}' and b.type = 'p'`,
+          let sql      = `select * from blocks as b left join attributes as a on b.id = a.block_id where a.name = 'custom-quote-id' and a.value = '${quoteId}' and b.type = 'p'`,
               res      = await querySQL(sql),
               quote    = node.innerText,
               comments = res.data
@@ -130,7 +130,6 @@ class Comment{
       this.appendBlocks(txt, block.getAttribute('data-node-id'), quoteId)
 
       strongNode.setAttribute('style','quote-' + quoteId)
-      block.setAttribute('custom-' + quoteId,"true")
       range.insertNode(strongNode)
       range.setStartAfter(strongNode)
       range.collapse(true) //取消文本选择状态
@@ -196,13 +195,8 @@ class Comment{
 
     if(target.className == 'delete-quote'){
       let quoteId   = target.getAttribute('data-quote-id'),
-          block     = document.querySelector(`[custom-${quoteId}]`),
           quoteNode = document.querySelector(`strong[style*="quote-${quoteId}"]`)
-      if(block){
-        // 移除 block 中的属性
-        let blockId = block.getAttribute('data-node-id')
-        block.removeAttribute(`custom-${quoteId}`)
-      }
+     
       if(quoteNode){
         // 移除 strong 标签
         let selection = getSelection(),
@@ -223,7 +217,6 @@ class Comment{
       let nodes = document.querySelectorAll(`div[custom-quote-id="${quoteId}"]`)
       if(nodes){
         for(var node of nodes) {
-          console.log(node);
           let blockId = node.getAttribute('data-node-id')
           if(blockId){
             this.removeBlock(blockId)
@@ -274,6 +267,32 @@ class Comment{
         "parentID": parentId
       }
     return insertBlock(data)
+  }
+
+  /**
+   * TODO: 评论输入框支持粘贴内容块链接
+   * @param {*} e 
+   */
+  handlePaste(e){
+    e.stopPropagation()
+    const clipdata = e.clipboardData || window.clipboardData;
+    const data = clipdata.getData("text/plain")
+    let selection = getSelection()
+    if(data && selection.toString()){
+      let reg1 = /.*\(\((\d{14}-.*)\)\).*/              //匹配格式：((20210815214330-btqo1b2))
+      let reg2 = /.*siyuan:\/\/blocks\/(\d{14}-\S{7})/  //匹配格式：siyuan://blocks/20210815214330-btqo1b2
+      let result = data.match(reg1) || data.match(reg2)
+      if(result){
+        e.preventDefault()
+        let link = document.createElement('a')
+        link.setAttribute('href','siyuan://blocks/' + result[1])
+        link.innerText = selection.toString()
+        let range = selection.getRangeAt(0)
+        range.deleteContents()
+        range.insertNode(link)
+        range.setStartAfter(link)
+      }
+    }
   }
 
   /**
