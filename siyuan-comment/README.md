@@ -1,5 +1,5 @@
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
+
 
 
 ## 前言
@@ -33,3 +33,6 @@
 - 错误和异常的处理
 - 段落内所有评论列表的查看
 
+## 界面预览
+
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
