@@ -1,7 +1,6 @@
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview2.png)
 
 ## 前言
 
