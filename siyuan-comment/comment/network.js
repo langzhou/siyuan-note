@@ -3,13 +3,28 @@
  * @param {object} data 
  * @returns 
  */
- export function setAttrs(data){
+ export function setBlockAttrs(data){
   return request("/api/attr/setBlockAttrs",data)
 }
 
-
 export function insertBlock(data){
+  return request("/api/block/insertBlock", data)
+}
+
+export function prependBlock(data) {
+  return request("/api/block/prependBlock", data)
+}
+
+export function appendBlock(data) {
   return request("/api/block/appendBlock", data)
+}
+
+export function updateBlock(data) {
+  return request("/api/block/updateBlock", data)
+}
+
+export function deleteBlock(id) {
+  return request("/api/block/deleteBlock", { "id": id })
 }
 
 export function querySQL(sql){

@@ -355,3 +355,8 @@ strong[style*="quote"]:hover{
   background-color: #f56c6c23;
   transition: all ease-in-out 500ms;
 }
+
+.protyle-wysiwyg div[data-node-id][custom-quote-time]::before {
+  content: attr(custom-quote-time);
+  font-size: 12px;
+}
