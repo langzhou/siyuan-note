@@ -356,7 +356,14 @@ strong[style*="quote"]:hover{
   transition: all ease-in-out 500ms;
 }
 
+/* 批注显示批注时间 */
 .protyle-wysiwyg div[data-node-id][custom-quote-time]::before {
   content: attr(custom-quote-time);
   font-size: 12px;
+}
+
+/* 块自定义属性名称全宽显示 */
+div.b3-dialog__container label.customItem>span.ft__on-surface.fn__flex-center {
+  min-width: 100px;
+  width: auto !important;
 }
