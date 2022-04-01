@@ -166,8 +166,9 @@ class Comment {
    * @param {*} quoteId 引文 id
    */
   async appendBlocks(quoteText, blockId, quoteId) {
-    let activeEditor = document.querySelector('.fn__flex-column.fn__flex.fn__flex-1.layout__wnd--active') //获得当前光标所在页面
-    let docId = activeEditor.querySelector('.fn__flex-1.protyle:not(.fn__none) .protyle-background').getAttribute('data-node-id'); //获得当前编辑的文章 id
+    let activeEditor = document.querySelector('.layout__center [data-type="wnd"].layout__wnd--active') || document.querySelector('.layout__center [data-type="wnd"]') || document.getElementById('editor') //获得当前光标所在页面
+    let background = activeEditor.querySelector('div.protyle:not(.fn__none) .protyle-background') || activeEditor.querySelector('.protyle-background') // 获得桌面端当前编辑的文章
+    let docId = background.dataset.nodeId //获得当前编辑的文章 id
 
     // 批注 h4 标题
     // let headerHtml = `<div data-subtype="h4" data-node-id="${createBlockId()}" data-type="NodeHeading" class="h4" style="comment-header" updated="${createBlockId(false)}"><div contenteditable="true" spellcheck="false">批注</div><div class="protyle-attr" contenteditable="false"></div></div>`
@@ -506,20 +507,20 @@ ${commentMd}
         }
       }
 
-    } else
-      if (style && style.indexOf('quote') > -1 && getSelection().toString() == '') {
-        // 2)点击 block 引文触发
-        e.stopPropagation()
-        show = true
-        from = 'block'
-        this.range = getSelection().getRangeAt(0)
-      } else
-        if (target.classList.contains('protyle-attr--comment') || parent.classList.contains('protyle-attr--comment') || grandParent.classList.contains('protyle-attr--comment')) {
-          // 3)点击内容块右侧图标触发
-          e.stopPropagation()
-          show = true
-          from = 'attr'
-        }
+    } else if (style && style.indexOf('quote') > -1 && getSelection().toString() == '') {
+      // 2)点击 block 引文触发
+      e.stopPropagation()
+      show = true
+      from = 'block'
+      this.range = getSelection().getRangeAt(0)
+    } else if (target.classList && target.classList.contains('protyle-attr--comment')
+      || parent.classList && parent.classList.contains('protyle-attr--comment')
+      || grandParent.classList && grandParent.classList.contains('protyle-attr--comment')) {
+      // 3)点击内容块右侧图标触发
+      e.stopPropagation()
+      show = true
+      from = 'attr'
+    }
 
     if (show) {
       this.isShow = true
