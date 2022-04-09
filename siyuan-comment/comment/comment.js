@@ -166,13 +166,14 @@ class Comment {
    * @param {*} quoteId 引文 id
    */
   async appendBlocks(quoteText, blockId, quoteId) {
-    let activeEditor = document.querySelector('.fn__flex-column.fn__flex.fn__flex-1.layout__wnd--active') //获得当前光标所在页面
-    let docId = activeEditor.querySelector('.fn__flex-1.protyle:not(.fn__none) .protyle-background').getAttribute('data-node-id'); //获得当前编辑的文章 id
+    let activeEditor = document.querySelector('.layout__center [data-type="wnd"].layout__wnd--active') || document.querySelector('.layout__center [data-type="wnd"]') || document.getElementById('editor') //获得当前光标所在页面
+    let background = activeEditor.querySelector('div.protyle:not(.fn__none) .protyle-background') || activeEditor.querySelector('.protyle-background') // 获得桌面端当前编辑的文章
+    let docId = background.dataset.nodeId //获得当前编辑的文章 id
 
     // 批注 h4 标题
     // let headerHtml = `<div data-subtype="h4" data-node-id="${createBlockId()}" data-type="NodeHeading" class="h4" style="comment-header" updated="${createBlockId(false)}"><div contenteditable="true" spellcheck="false">批注</div><div class="protyle-attr" contenteditable="false"></div></div>`
     let headerMd = `
-#### 批注
+# 批注
 {: custom-quote-type="${config.attrs.type.heading}"}
 `
 
@@ -485,7 +486,9 @@ ${commentMd}
     if (!this.box) { this.createBox() }
 
     // 首先根据点击事件来源决定哪些情况下要弹出 box
-    if (target.getAttribute('data-type') == 'comment' || parent.getAttribute('data-type') == 'comment' || grandParent.getAttribute('data-type') == 'comment') {
+    if (target != null && target.dataset != null && target.dataset.type == 'comment'
+      || parent != null && parent.dataset != null && parent.dataset.type == 'comment'
+      || grandParent != null && grandParent.dataset != null && grandParent.dataset.type == 'comment') {
       // 1)点击 toolbar 图标触发
       e.stopPropagation()
       let selection = getSelection(),
@@ -504,20 +507,20 @@ ${commentMd}
         }
       }
 
-    } else
-      if (style && style.indexOf('quote') > -1 && getSelection().toString() == '') {
-        // 2)点击 block 引文触发
-        e.stopPropagation()
-        show = true
-        from = 'block'
-        this.range = getSelection().getRangeAt(0)
-      } else
-        if (target.classList.contains('protyle-attr--comment') || parent.classList.contains('protyle-attr--comment') || grandParent.classList.contains('protyle-attr--comment')) {
-          // 3)点击内容块右侧图标触发
-          e.stopPropagation()
-          show = true
-          from = 'attr'
-        }
+    } else if (style && style.indexOf('quote') > -1 && getSelection().toString() == '') {
+      // 2)点击 block 引文触发
+      e.stopPropagation()
+      show = true
+      from = 'block'
+      this.range = getSelection().getRangeAt(0)
+    } else if (target.classList && target.classList.contains('protyle-attr--comment')
+      || parent.classList && parent.classList.contains('protyle-attr--comment')
+      || grandParent.classList && grandParent.classList.contains('protyle-attr--comment')) {
+      // 3)点击内容块右侧图标触发
+      e.stopPropagation()
+      show = true
+      from = 'attr'
+    }
 
     if (show) {
       this.isShow = true
