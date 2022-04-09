@@ -19,13 +19,13 @@
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
 
-2022.02.15：更新 Note Views 及 Little Things 源码(文件夹：widgets/source/)
+> 2022.04.09：新增挂件 Note-backlink
 
 挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
 
-- [Note Views](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-views)：一款仿 Notion 视图的文档浏览挂件
+- [Note Views v2.0](https://github.com/langzhou/note-views-for-siyuan)：一款仿 Notion 视图的文档浏览挂件
 - [Little Things(doing)](https://github.com/langzhou/siyuan-note/tree/main/widgets/little-things)：轻量级的事务管理
-- Tiny Widget(todo)：集成了多个小部件，包括进度条、5 级评星、文档内目录 TOC 等
+- [Note Backlink](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-backlink)：支持在笔记内插入反链和提及面板
 
 
 ## Themes
