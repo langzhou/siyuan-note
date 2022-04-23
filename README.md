@@ -4,7 +4,7 @@
 
 如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
 
-## 1. 挂件 Widgets
+## 一、挂件 Widgets
 
 ![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/card.png) 
 
@@ -20,7 +20,7 @@
 
 
 
-## 2. 工具箱脚本 Utils
+## 二、工具箱脚本 Utils
 
 <!-- ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png) -->
 
@@ -30,7 +30,7 @@
 
 详情请 [点击](https://github.com/langzhou/siyuan-note/tree/main/siyuan-utils) 查看
 
-## 3. 浏览器插件 Chrome Extension
+## 三、浏览器插件 Chrome Extension
 
 提供了类似 Flomo 一样的闪记功能。
 
@@ -38,7 +38,7 @@
 
 
 
-## 4. 主题 Themes
+## 四、主题 Themes
 
 [主题更新日志](https://github.com/langzhou/siyuan-note/blob/main/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
