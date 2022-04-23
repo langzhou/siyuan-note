@@ -7,11 +7,11 @@
 
 然而受到开发资源的限制，我个人对于软件的一些迫切需求未能及时实现，所以想着自己是否可以先做点什么。于是6月份（2021）开始正式接触学习JavaScript，在此之前我仅有一些 PHP 和 Python 的经验，而且也都是自学。所以，这个项目也算是我个人作为一个前端新手边学边用的学习记录，在满足自身需求的同时，也在探索思源笔记的可能性。
 
-由于目前官方暂未提供插件接口，本项目实现的方式有些 hack，因此暂不提供 js 注入方法，有需要的请自行探索。
 
 哦，对了，我的订阅推荐码 `4EY48YJ`
 
 ## 项目简介
+
 Siyuan Utils 项目包括 Chrome Extension 和 Local Script 两部分。
 
 其中 Chrome Extension（[详见](https://github.com/langzhou/siyuan-note/tree/main/chrome-extension)）主要满足一些网络资料收集的场景，比如微信读书笔记导入等，而 Local Script 则是对客户端本体进行功能增强。
@@ -38,12 +38,23 @@ Local Script 已实现的功能（部分源码未更新）：
 - 构建 `npm run build`
 ## 功能预览
 
-### Comment
+### 行内评论 Comment
 
-![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
+<!-- ![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png) -->
+
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
+
+思源笔记行内评论功能，支持划词评论，在笔记底部以反链的形式插入评论内容。
+
+详细说明请点击 [Siyuan Comment](https://github.com/langzhou/siyuan-note/tree/main/siyuan-comment)
+
 ### Search Box
 
 ![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/searchbox-1.png)
 
+支持快捷键弹出搜索框，输入搜索内容后可以搜索豆瓣书籍信息，然后自动插入到笔记中。
 ### Image Share
+
 ![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/image-share-1.png)
+
+支持将选中的笔记内容以图片的形式导出。

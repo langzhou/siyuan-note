@@ -4,31 +4,41 @@
 
 如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
 
-## Siyuan Comment
+## 挂件 Widgets
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-comment/preview.png)
-
-思源笔记行内评论功能，详细说明请点击 [Siyuan Comment](https://github.com/langzhou/siyuan-note/tree/main/siyuan-comment)
-## Siyuan Utils
-
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png)
-
-思源笔记工具箱，提供了一些可能有用的功能增强，比如内容块评论、题头图位置调整等（[详见](https://github.com/langzhou/siyuan-note/tree/main/siyuan-utils)）。
-
-## Widgets
-
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
-
-> 2022.04.09：新增挂件 Note-backlink
-
-挂件（widget）是思源笔记即将推出的一种特殊的内容块，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
-
-- [Note Views v2.0](https://github.com/langzhou/note-views-for-siyuan)：一款仿 Notion 视图的文档浏览挂件
-- [Little Things(doing)](https://github.com/langzhou/siyuan-note/tree/main/widgets/little-things)：轻量级的事务管理
-- [Note Backlink](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-backlink)：支持在笔记内插入反链和提及面板
+![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/card.png) 
 
 
-## Themes
+挂件（widget）是思源笔记中的一种内容块类型，通过 iframe 嵌入来实现，结合数据查询接口，可实现一些增强功能。
+
+更多挂件介绍请 [点击查看](https://github.com/langzhou/siyuan-note/tree/main/widgets)。
+
+- [Note Views（v2.0）](https://github.com/langzhou/note-views-for-siyuan)：一款仿 Notion 视图的文档浏览挂件。`v3.0 计划中`；
+- Note Attrs（计划中）：可以插入到笔记正文中的属性设置面板；
+- [Note Backlink](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-backlink)：支持在笔记正文内插入反链和提及面板；
+- [Little Things（暂未更新）](https://github.com/langzhou/siyuan-note/tree/main/widgets/little-things)：轻量级的事务管理；
+
+
+
+## 工具箱脚本 Utils
+
+<!-- ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/comment-1.png) -->
+
+![img](https://raw.githubusercontent.com/langzhou/siyuan-note/main/siyuan-utils/preview/searchbox-1.png)
+
+通过在思源笔记中插入 js 脚本（目前可以通过 theme.js 来注入）来实现一些增强功能，比如行内评论、豆瓣书籍检索、将选中的文本导出为图片等。
+
+详情请 [点击](https://github.com/langzhou/siyuan-note/tree/main/siyuan-utils) 查看
+
+## 浏览器插件 Chrome Extension
+
+提供了类似 Flomo 一样的闪记功能。
+
+详情请 [点击](https://github.com/langzhou/siyuan-note/tree/main/chrome-extension) 查看
+
+
+
+## 主题 Themes
 
 [主题更新日志](https://github.com/langzhou/siyuan-note/blob/main/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97.md)
 
