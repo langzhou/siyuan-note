@@ -4,6 +4,13 @@
 
 如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
 
+## Note Views v3.0
+
+Note Views v3.0筹备中，更多预览图详见[README.md](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-views-v3)
+
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views-v3/preview/table-view-2.png)
+
+
 ## 一、挂件 Widgets
 
 ![card](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views/preview/card.png) 
