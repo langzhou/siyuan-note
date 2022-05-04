@@ -4,6 +4,14 @@
 
 如果您需要订阅思源笔记，欢迎使用我的推荐码 `4EY48YJ`
 
+
+## Note Attrs
+
+类似 Notion，在文档页面内展示文档属性，更加便捷的对属性进行编辑。
+
+结合 Note Views 使用更佳。
+
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-attrs/preview/note-attrs.png)
 ## Note Views v3.0
 
 Note Views v3.0筹备中，更多预览图详见[README.md](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-views-v3)
