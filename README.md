@@ -11,7 +11,7 @@
 
 结合 Note Views 使用更佳。
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-attrs/preview/note-attrs.png)
+![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-attrs/preview/note-attrs-1.png)
 ## Note Views v3.0
 
 Note Views v3.0筹备中，更多预览图详见[README.md](https://github.com/langzhou/siyuan-note/tree/main/widgets/note-views-v3)
