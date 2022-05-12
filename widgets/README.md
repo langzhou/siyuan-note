@@ -57,3 +57,44 @@
 轻量级的事务管理。
 
 ![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/little-things/preview.png) 
+
+
+
+## 提升挂件使用体验的 Tips
+
+隐藏 iframe 边框，缩小挂件缩放手柄，在主题样式中添加一下代码：
+
+```css
+.b3-typography iframe, .protyle-wysiwyg iframe {
+  border: 0px solid var(--b3-border-color);
+}
+
+.protyle-wysiwyg [data-node-id].iframe .protyle-action__drag:after {
+  content: "";
+  background-color: #eee;
+  width: 12px;
+  height: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: nwse-resize;
+}
+
+.protyle-wysiwyg [data-node-id].iframe .protyle-action__drag {
+  height: 12px;
+  width: 2px;
+  background-color: #eee;
+  display: none;
+  border-radius: 4px;
+  cursor: nwse-resize;
+  transition: var(--b3-transition);
+  position: absolute;
+  right: -4px;
+  bottom: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+```
