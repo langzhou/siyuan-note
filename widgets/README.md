@@ -37,11 +37,11 @@
 
 - 支持部分系统自动的筛选（正文、创建时间、更新时间、标签等），最多支持 5 个筛选条件，筛选逻辑为「且」，即筛选条件需要同时满足的笔记才会展现；
 
-![pic](https://cdn.jsdelivr.net/gh/langzhou/note-views-for-siyuan/preview.png)
+![pic](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-views-v3/preview/table-view-2.png)
 
 ## Note Attrs
 
-![preview](https://raw.githubusercontent.com/langzhou/siyuan-note/main/widgets/note-attrs/preview/note-attrs.png) 
+![preview](https://raw.githubusercontent.com/langzhou/note-attrs/main/preview.png) 
 
 ## Note Backlink
 
