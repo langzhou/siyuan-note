@@ -140,13 +140,20 @@ class SiyuanUtil {
         this.appendStyleSheet()
       }, 500);
     } else {
-      let fragment = document.createDocumentFragment()
-      let css = document.createElement('link')
-      css.setAttribute('type', 'text/css')
-      css.setAttribute('rel', 'stylesheet')
-      css.setAttribute('href', '/appearance/themes/Dark+/app/comment/comment.css')
-      fragment.appendChild(css)
-      document.head.insertBefore(fragment, node)
+      let themeStyle = document.querySelector('#themeStyle')
+      if(themeStyle){
+        let url = themeStyle.getAttribute('href').split('/')
+        let theme = url[url.length - 2]
+        if (theme) {
+          let fragment = document.createDocumentFragment()
+          let css = document.createElement('link')
+          css.setAttribute('type', 'text/css')
+          css.setAttribute('rel', 'stylesheet')
+          css.setAttribute('href', `'/appearance/themes/${theme}/comment/comment.css'`)
+          fragment.appendChild(css)
+          document.head.insertBefore(fragment, node)
+        }
+      }
     }
   }
 }
