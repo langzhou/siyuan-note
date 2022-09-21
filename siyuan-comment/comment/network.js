@@ -3,11 +3,11 @@
  * @param {object} data 
  * @returns 
  */
- export function setBlockAttrs(data){
-  return request("/api/attr/setBlockAttrs",data)
+export function setBlockAttrs(data) {
+  return request("/api/attr/setBlockAttrs", data)
 }
 
-export function insertBlock(data){
+export function insertBlock(data) {
   return request("/api/block/insertBlock", data)
 }
 
@@ -27,8 +27,8 @@ export function deleteBlock(id) {
   return request("/api/block/deleteBlock", { "id": id })
 }
 
-export function querySQL(sql){
-  return request("/api/query/sql",{ "stmt": sql })
+export function querySQL(sql) {
+  return request("/api/query/sql", { "stmt": sql })
 }
 
 /**
@@ -38,9 +38,9 @@ export function querySQL(sql){
  * @param {*} method 请求方法 get post
  * @returns 
  */
-export function request(url,data,method='POST'){
-  return new Promise((resolve, reject)=>{
-    if(method.toUpperCase() == 'POST'){
+export function request(url, data, method = 'POST') {
+  return new Promise((resolve, reject) => {
+    if (method.toUpperCase() == 'POST') {
       fetch(url, {
         method: 'POST',
         headers: {
@@ -49,18 +49,18 @@ export function request(url,data,method='POST'){
         body: JSON.stringify(data)
         // body:data
       }).then(handleResponse)
-        .then(data  => resolve(data))
+        .then(data => resolve(data))
         .then(error => reject(error))
 
-    }else{
+    } else {
       fetch(url)
-      .then(handleResponse)
-      .then(data  => resolve(data))
-      .then(error => reject(error))
+        .then(handleResponse)
+        .then(data => resolve(data))
+        .then(error => reject(error))
     }
   })
 
-  function handleResponse (response) {
+  function handleResponse(response) {
     let contentType = response.headers.get('content-type')
     if (contentType.includes('application/json')) {
       return handleJSONResponse(response)
@@ -71,7 +71,7 @@ export function request(url,data,method='POST'){
     }
   }
 
-  function handleJSONResponse (response) {
+  function handleJSONResponse(response) {
     return response.json()
       .then(json => {
         if (response.ok) {
@@ -84,7 +84,7 @@ export function request(url,data,method='POST'){
         }
       })
   }
-  function handleTextResponse (response) {
+  function handleTextResponse(response) {
     return response.text()
       .then(text => {
         if (response.ok) {
