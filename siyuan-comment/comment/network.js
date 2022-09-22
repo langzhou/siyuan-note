@@ -3,7 +3,7 @@
  * @param {object} data 
  * @returns 
  */
-export function setBlockAttrs(data) {
+ export function setBlockAttrs(data) {
   return request("/api/attr/setBlockAttrs", data)
 }
 
@@ -29,6 +29,10 @@ export function deleteBlock(id) {
 
 export function querySQL(sql) {
   return request("/api/query/sql", { "stmt": sql })
+}
+
+export function searchEmbedBlock(sql, headingMode = 0, excludeIDs = []) {
+  return request("/api/search/searchEmbedBlock", { "stmt": sql, headingMode, excludeIDs })
 }
 
 /**
