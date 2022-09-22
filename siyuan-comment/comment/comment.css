@@ -162,6 +162,7 @@ span[data-type~=strong][style*="quote"]:hover {
 
 #lz-comment-box .list-item .comment {
   margin: 5px 0;
+  padding: 0;
   color: var(--b3-theme-on-background);
 }
 
@@ -429,7 +430,7 @@ span[data-type~=strong][style*="quote"]:hover {
 }
 
 /* 评论显示评论时间 */
-.protyle-wysiwyg div[data-node-id][custom-quote-time]::before {
+.protyle-wysiwyg [data-node-id][custom-quote-type="container"] [data-node-id][custom-quote-time]::before {
   content: attr(custom-quote-time);
   font-size: 12px;
 }
