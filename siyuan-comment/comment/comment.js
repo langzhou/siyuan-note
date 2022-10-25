@@ -78,36 +78,36 @@ class Comment {
           quoteId = quoteId.replace("quote-", "")  //移除 style 属性中用于表示的“quote”,获得原始 id
           let sql = `select b.* from blocks as b left join attributes as a on b.id = a.block_id where a.name = 'custom-quote-id' and a.value = '${quoteId}' and b.type = 'p' order by b.created`,
             // res = await querySQL(sql),
-            res = await searchEmbedBlock(sql),
+            res = await searchEmbedBlock(sql, quoteId),
             quote = node.innerText,
             // comments = res.data
-            comments = res.data.blocks
+            comments = res?.data?.blocks ?? []
           html += `<div class="quote">${quote}<span class="delete-quote" data-quote-id="${quoteId}">移除引文</span></div>`
 
           if (comments.length > 0) {
-            for (let key in comments) {
+            for (let index in comments) {
               // html += `
               //   <div class="list-item">
               //     <div class="header">
-              //       <div class="date">${formatSYDate(comments[key]['created'])}</div>
+              //       <div class="date">${formatSYDate(comments[index].block['created'])}</div>
               //       <div class="actions">
-              //         <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[key]['block_id']}">移除评论</div>
-              //         <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[key]['block_id']}"><a href="siyuan://blocks/${comments[key]['block_id']}">跳转到评论</a></div>
+              //         <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[index].block['block_id']}">移除评论</div>
+              //         <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[index].block['block_id']}"><a href="siyuan://blocks/${comments[index].block['block_id']}">跳转到评论</a></div>
               //       </div>
               //     </div>
-              //     <div class="comment .protyle-wysiwyg">${lute.Md2HTML(comments[key].markdown)}</div>
+              //     <div class="comment .protyle-wysiwyg">${lute.Md2HTML(comments[index].block.markdown)}</div>
               //   </div>
               // `
               html += `
                 <div class="list-item">
                   <div class="header">
-                    <div class="date">${formatSYDate(comments[key].id)}</div>
+                    <div class="date">${formatSYDate(comments[index].block.id)}</div>
                     <div class="actions">
-                      <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[key].id}">移除评论</div>
-                      <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[key].id}"><a href="siyuan://blocks/${comments[key].id}">跳转到评论</a></div>
+                      <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[index].block.id}">移除评论</div>
+                      <div class="delete-comment" data-quote-id="${quoteId}" data-comment-id="${comments[index].block.id}"><a href="siyuan://blocks/${comments[index].block.id}">跳转到评论</a></div>
                     </div>
                   </div>
-                  <div class="comment protyle-wysiwyg">${comments[key].content}</div>
+                  <div class="comment protyle-wysiwyg">${comments[index].block.content}</div>
                 </div>
               `
             }
