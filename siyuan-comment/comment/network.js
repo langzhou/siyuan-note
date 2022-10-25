@@ -31,8 +31,8 @@ export function querySQL(sql) {
   return request("/api/query/sql", { "stmt": sql })
 }
 
-export function searchEmbedBlock(sql, headingMode = 0, excludeIDs = []) {
-  return request("/api/search/searchEmbedBlock", { "stmt": sql, headingMode, excludeIDs })
+export function searchEmbedBlock(stmt, embedBlockID, headingMode = 0, breadcrumb = false, excludeIDs = []) {
+  return request("/api/search/searchEmbedBlock", { stmt, embedBlockID, headingMode, breadcrumb, excludeIDs })
 }
 
 /**
